@@ -1,7 +1,9 @@
+> 当前状态（2026-09-17）：用户认可原型 v1.1.6 并要求 G3 方案；需求用作设计输入，未提供事实仍待补。以下历史版本记录不代表当前阶段停留在 G2。技术方案见 [G3](../03-engineering/README.md)。
+
 # PRD · 个人网站与站长 Agent
 
 > v1.1 · 2026-09-16 · 待整体评审。已确认：重新选视觉方向；首版包含访客 AI 问答与站长管理 Agent。新增已明确：访客自带模型配置与 API Key。火星方向与原型制作已获明确授权；本稿为完整交付，整份仍待验收。
-> 来源：[来源说明](../00-project/source-notes.md)；旧稿：[v0.1.1](history/PRD-v0.1.1.md)。本稿不确定技术栈或排期。
+> 来源：[来源说明（历史）](https://github.com/adu-works/self-website/blob/fc7eb6b/docs/00-project/source-notes.md)；旧稿：[v0.1.1（历史）](https://github.com/adu-works/self-website/blob/fc7eb6b/docs/01-product/history/PRD-v0.1.1.md)。本稿不确定技术栈或排期。
 
 ## 1. 产品目标
 
@@ -111,7 +113,7 @@ P0 表示建议的首版必要范围；“首版包含两类 Agent”已经确�
 
 - v1.0：依据用户“就用这个吧”确定火星主题，授权完成内容设计与原型；增加完整体验方案和交付入口，保留真实内容及后端边界。
 
-- v0.3：加入访客自带模型配置、R13/A08 与火星双路线提案；未将举例当作主题批准。此前 [v0.2](history/PRD-v0.2.md) 已归档。
+- v0.3：加入访客自带模型配置、R13/A08 与火星双路线提案；未将举例当作主题批准。此前 [v0.2（历史）](https://github.com/adu-works/self-website/blob/fc7eb6b/docs/01-product/history/PRD-v0.2.md) 已归档。
 - v0.2：按本轮用户回复将访客问答与站长 Agent 纳入首版；撤销太空/桌面默认方向；新增功能状态、内容准备与验收映射；旧稿归档，整份需求待确认。
 
 ## v1.1 用户反馈补充（2026-09-16）

@@ -1,18 +1,9 @@
-# 原型与体验设计
+# 原型与设计依据
 
-[打开 Sites 私有原型](https://mars-fieldnotes.hlb424559864.chatgpt.site) · [部署记录](deployment-v1.1.md)
+- [唯一当前原型](../../prototype/README.md)：v1.1.6，已作为技术设计基线。
+- [体验方案](experience-spec-v1.1.md)：故事、动作、Chat、内容与社媒设计。
+- [参考站交互研究](reference-interactions.md)：保留有用设计依据。
+- [页面与返回核查](navigation-audit-v1.1.3.md)：导航验证证据。
+- [部署记录](deployment-v1.1.md)：当前 Site 的版本与状态。
 
-当前交付：[完整体验方案 v1.1](experience-spec-v1.1.md) 与 [可操作原型 v1.1](v1.1/README.md)。用户已明确选择火星主题，并授权完成具体内容设计。
-
-原型包含移动、打造铲子、坡后挖宝、模型配置与船票、飞向地球、Chat、砸炉和回收返回主站；并提供项目、文章、关于/联系、站长管理演示。AI、凭据、登录与写入全部为模拟，个人内容标注为示例或待补。
-
-[验证记录](v1.1/VALIDATION.md)说明实际检查与限制。原型源文件独立保存，不覆盖历史稿。
-
-## 设计依据与历史
-
-- [参考交互研究](reference-interactions.md)：11 个站的实际操作和局限。
-- [三方向比较](design-brief.md)：选定火星前的比较材料。
-- [火星初始提案](mars-journey.md)：后续已由用户选定，细节以 v1.1 完整方案为准。
-- [旧 v0.3.1](v0.1/README.md)：历史目录名仍为 v0.1，不是当前原型。
-
-原型验收后才进入正式工程方案；[阶段状态](../00-project/status.md)是确认入口。
+老原型与方向草稿已按用户要求移出工作目录，历史从 Git 查询。正式架构与开发任务见 [G3](../03-engineering/README.md)。

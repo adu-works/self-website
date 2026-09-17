@@ -10,4 +10,4 @@
 
 阶段边界：允许本次需求与原型并行完善，不自动将 PRD 整份或尚未交付的原型记为验收通过。“方案文档”本次落实为完整体验方案；正式实现方案和规划依用户既有阶段规则在原型确认后形成。
 
-交付依据：[完整体验方案](../02-prototype/experience-spec-v1.0.md)、[原型说明](../02-prototype/v1.0/README.md)。
+交付依据：[完整体验方案（历史）](https://github.com/adu-works/self-website/blob/fc7eb6b/docs/02-prototype/experience-spec-v1.0.md)、[原型说明（历史）](https://github.com/adu-works/self-website/blob/fc7eb6b/docs/02-prototype/v1.0/README.md)。

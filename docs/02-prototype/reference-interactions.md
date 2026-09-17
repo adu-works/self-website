@@ -44,7 +44,7 @@
 - 交互反馈：对象响应、加载反馈、关闭/返回、键盘操作；手机另测。
 - 本站特有：内容 → AI 问答 → 引用 → 返回正文；管理提案 → 差异 → 确认/取消/失败，均使用标注模拟。
 
-本次只深化研究，没有制作或批准新原型，没有修改 PRD 首版边界。当前选择入口仍为[设计提案](design-brief.md)，阶段记录见[status](../00-project/status.md)。
+本次只深化研究，没有制作或批准新原型，没有修改 PRD 首版边界。当前选择入口仍为[设计提案（历史）](https://github.com/adu-works/self-website/blob/fc7eb6b/docs/02-prototype/design-brief.md)，阶段记录见[status](../00-project/status.md)。
 
 ## 2026-09-16 · v1.1 返工回访
 

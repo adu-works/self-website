@@ -34,7 +34,7 @@
 
 ## 测试
 
-实际浏览器检查与限制详见[验证记录](../../docs/02-prototype/v1.0/VALIDATION.md)。静态原型做脚本语法、入口和资源检查；不宣称真实 AI、鉴权与生产发布测试通过。
+实际浏览器检查与限制详见[验证记录（历史）](https://github.com/adu-works/self-website/blob/fc7eb6b/docs/02-prototype/v1.0/VALIDATION.md)。静态原型做脚本语法、入口和资源检查；不宣称真实 AI、鉴权与生产发布测试通过。
 
 ## 你自己动手（练习）
 
