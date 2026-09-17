@@ -22,7 +22,7 @@
 | [04-delivery](docs/04-delivery/README.md) | 正式验收、上线与维护材料的阶段入口 |
 | [05-collaboration](docs/05-collaboration/ai-development-sop.md) | 活跃 SOP、约定、经验 |
 | [decisions](docs/decisions/002-mars-journey-selected.md) | 重要选择及其依据 |
-| [learn/logs](learn/logs/016-profile-social-github.md) | 递增学习日志，最新 016 |
+| [learn/logs](learn/logs/017-public-repository.md) | 递增学习日志，最新 017 |
 
 旧原型保留在 [v0.1](docs/02-prototype/v0.1/README.md)，历史上被覆盖到 v0.3.1，不作当前交付。Site 源码仓库最初位于 `docs/02-prototype/v1.0/`，当前 `v1.1/` 是其独立 worktree，不会将整个个人目录上传。
 
@@ -36,4 +36,4 @@
 
 当前修订 v1.1.5：项目、手记、关于与联系的内容内页视觉升级。
 
-当前修订 v1.1.6：黄凌波姓名入口与社媒目录。项目归档：[adu-works/self-website（私有）](https://github.com/adu-works/self-website)。
+当前修订 v1.1.6：黄凌波姓名入口与社媒目录。项目归档：[adu-works/self-website（公开）](https://github.com/adu-works/self-website)。
