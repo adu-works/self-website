@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>见解 · 原型 v0.1</title>
+<link rel="stylesheet" href="assets/prototype.css">
+</head>
+<body>
+<div data-slot="header"></div>
+
+<main>
+  <section class="section">
+    <div class="wrap-narrow">
+      <span class="eyebrow">R03 · 见解 · 全页示例内容</span>
+      <h1>见解</h1>
+      <p class="soft">写做过的事、踩过的坑和当时的判断。每篇标注日期、关联项目与来源，方便后续被问答引用。</p>
+
+      <div class="state-switch" style="margin:18px 0">
+        <span><strong>演示状态：</strong></span>
+        <select id="notes-state" data-state-switch="notes">
+          <option value="normal">有文章</option>
+          <option value="empty">空状态（一篇都还没写）</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow">
+      <div data-state-group="notes" data-state="empty">
+        <div class="empty-state">
+          <h3>还没有公开的文章</h3>
+          <p style="max-width:34em;margin-inline:auto">
+            首版允许零文章。这里不放占位文章，也不写“敬请期待 3 篇好文”这种承诺。
+          </p>
+          <p><a class="btn" href="projects.html">先看项目</a></p>
+        </div>
+      </div>
+
+      <div data-state-group="notes" data-state="normal">
+        <ul class="stack" style="list-style:none;padding:0">
+          <li class="card">
+            <p class="row" style="margin-bottom:6px">
+              <span class="badge badge-mock">示例</span>
+              <span class="muted" style="font-size:.84rem">示例日期 · 约 6 分钟</span>
+            </p>
+            <h2 style="font-size:1.25rem;margin-bottom:.3em"><a href="note-detail.html">示例文章：我怎么用 Agent 做需求评审</a></h2>
+            <p class="soft">摘要两行：这篇解决什么困惑、给出什么可操作的做法。摘要不写夸张结论。</p>
+            <p class="muted" style="font-size:.85rem;margin:0">关联项目：<a href="project-detail.html">示例项目 A</a></p>
+          </li>
+          <li class="card">
+            <p class="row" style="margin-bottom:6px">
+              <span class="badge badge-mock">示例</span>
+              <span class="muted" style="font-size:.84rem">示例日期 · 约 4 分钟</span>
+            </p>
+            <h2 style="font-size:1.25rem;margin-bottom:.3em"><a href="note-detail.html">示例文章：一次返工教会我的事</a></h2>
+            <p class="soft">摘要两行。</p>
+            <p class="muted" style="font-size:.85rem;margin:0">关联项目：暂无</p>
+          </li>
+          <li class="card">
+            <p class="row" style="margin-bottom:6px">
+              <span class="badge badge-mock">示例</span>
+              <span class="badge badge-warn">草稿 · 仅管理员可见</span>
+            </p>
+            <h2 style="font-size:1.25rem;margin-bottom:.3em">示例草稿：还没写完的一篇</h2>
+            <p class="soft" style="margin:0">演示草稿态：访客视图里这一条根本不出现，只有在<a href="admin.html">管理端</a>能看到。此处显示是为了让你在原型里看到差异。</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-slot="footer"></div>
+<script src="assets/prototype.js"></script>
+</body>
+</html>

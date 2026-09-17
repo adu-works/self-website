@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>项目 · 原型 v0.1</title>
+<link rel="stylesheet" href="assets/prototype.css">
+</head>
+<body>
+<div data-slot="header"></div>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">R02 · 项目 · 全页示例内容</span>
+      <h1>项目</h1>
+      <p class="soft" style="max-width:44em">
+        每个项目固定四段：<b>问题</b>、<b>我的贡献</b>、<b>当前状态</b>、<b>成果证据</b>。
+        状态只有三种取值，避免“进行中”被读成“已完成”。资料不足的项目显式标出，不假装有成果。
+      </p>
+
+      <div class="state-switch" style="margin:18px 0">
+        <span><strong>演示状态：</strong></span>
+        <label class="lbl" for="list-state" style="margin:0">项目列表</label>
+        <select id="list-state" data-state-switch="list">
+          <option value="normal">正常（3 个项目）</option>
+          <option value="empty">空状态（还没有可公开项目）</option>
+          <option value="loading">加载中</option>
+        </select>
+      </div>
+
+      <div data-state-group="list" data-state="loading">
+        <div class="grid grid-3">
+          <div class="card"><div class="skeleton" style="width:40%"></div><div class="skeleton" style="width:85%;height:20px"></div><div class="skeleton"></div><div class="skeleton" style="width:60%"></div></div>
+          <div class="card"><div class="skeleton" style="width:40%"></div><div class="skeleton" style="width:85%;height:20px"></div><div class="skeleton"></div><div class="skeleton" style="width:60%"></div></div>
+          <div class="card"><div class="skeleton" style="width:40%"></div><div class="skeleton" style="width:85%;height:20px"></div><div class="skeleton"></div><div class="skeleton" style="width:60%"></div></div>
+        </div>
+      </div>
+
+      <div data-state-group="list" data-state="empty">
+        <div class="empty-state">
+          <h3>还没有公开的项目</h3>
+          <p style="max-width:34em;margin-inline:auto">诚实空状态：不放假卡片、不放“敬请期待”的虚构条目。可以先去看<a href="about.html">经历</a>或<a href="contact.html">直接联系</a>。</p>
+        </div>
+      </div>
+
+      <div data-state-group="list" data-state="normal">
+        <div class="row" style="margin-bottom:18px">
+          <button class="chip" type="button" aria-pressed="true">全部（3）</button>
+          <button class="chip" type="button">Agent / AI</button>
+          <button class="chip" type="button">数据与后端</button>
+          <button class="chip" type="button">工具</button>
+          <span class="muted" style="font-size:.84rem">筛选为原型示意，点击暂不过滤</span>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <p class="row" style="margin-bottom:8px">
+              <span class="badge badge-ok">进行中</span>
+              <span class="badge badge-neutral">Agent / AI</span>
+              <span class="badge badge-mock">示例</span>
+            </p>
+            <h2 style="font-size:1.2rem"><a href="project-detail.html">示例项目 A · 内容问答系统</a></h2>
+            <p class="soft"><b>问题：</b>访客要自己在简历、博客、仓库之间拼信息。</p>
+            <p class="soft"><b>我的贡献：</b>示例——独立完成需求、检索与引用校验、上线与监控。</p>
+            <p class="muted" style="font-size:.85rem;margin:0">证据：设计文档、评估集结果、线上页面（示例链接）</p>
+          </article>
+
+          <article class="card">
+            <p class="row" style="margin-bottom:8px">
+              <span class="badge badge-neutral">已交付</span>
+              <span class="badge badge-neutral">数据与后端</span>
+              <span class="badge badge-mock">示例</span>
+            </p>
+            <h2 style="font-size:1.2rem"><a href="project-detail.html">示例项目 B · 数据管道重构</a></h2>
+            <p class="soft"><b>问题：</b>示例问题描述。</p>
+            <p class="soft"><b>我的贡献：</b>示例——在 4 人小组中负责其中两个模块。贡献边界写清楚，不把团队成果写成个人成果。</p>
+            <p class="muted" style="font-size:.85rem;margin:0">证据：公开文档（示例链接）</p>
+          </article>
+
+          <article class="card" style="opacity:.92">
+            <p class="row" style="margin-bottom:8px">
+              <span class="badge badge-warn">资料不足</span>
+              <span class="badge badge-mock">示例</span>
+            </p>
+            <h2 style="font-size:1.2rem">示例项目 C</h2>
+            <p class="soft">这个卡片演示 R02 的验收点：项目存在，但没有可公开的证据或授权，因此<strong>不提供详情页</strong>，也不写成果。</p>
+            <div class="note note-warn" style="margin-top:10px">
+              当前可公开的材料不足，暂不展开。如需了解，请<a href="contact.html">直接联系</a>。
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>状态取值约定</h2>
+      <table class="data">
+        <thead><tr><th>状态</th><th>含义</th><th>页面表现</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge badge-ok">进行中</span></td><td>正在做，已有可展示的阶段结果</td><td>详情页可读，成果标注“阶段性”</td></tr>
+          <tr><td><span class="badge badge-neutral">已交付</span></td><td>已完成并有可核实的结果</td><td>详情页可读，证据链接有效</td></tr>
+          <tr><td><span class="badge badge-warn">资料不足</span></td><td>不能公开或证据不够</td><td>只在列表出现，不进详情，不写成果</td></tr>
+        </tbody>
+      </table>
+      <div class="note note-mock" style="margin-top:16px">
+        <strong>待你确认：</strong>PRD 7.5 里“项目四件套”的具体组成尚未定。原型先用“问题 / 贡献 / 状态 / 证据”，你可以改名或增删。
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-slot="footer"></div>
+<script src="assets/prototype.js"></script>
+</body>
+</html>

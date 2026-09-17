@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>你的名字 · 工作台</title>
+<meta name="description" content="原型演示：Agent 原生个人平台。所有内容均为示例。">
+<meta name="theme-color" content="#05040a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/os.css">
+<link rel="stylesheet" href="assets/intro.css">
+</head>
+<body data-phase="intro">
+
+<section class="intro" aria-label="空间站入口">
+  <canvas></canvas>
+  <div class="intro-hud">
+    <div>
+      <p class="intro-hi">你好。</p>
+      <p class="intro-copy">你是宇航员。走到气闸，把门推开，里面才是那张桌子。</p>
+      <div class="intro-actions">
+        <button class="intro-enter" type="button">推开门</button>
+        <button class="intro-skip" type="button">跳过</button>
+      </div>
+    </div>
+    <span></span>
+    <p class="intro-status">正在出舱…</p>
+  </div>
+</section>
+
+<div class="boot" role="status" aria-label="正在进入工作台">
+  <div class="boot-glow" aria-hidden="true"></div>
+  <div class="boot-inner">
+    <p class="boot-hi" aria-hidden="true">
+      <span style="--i:0">你</span><span style="--i:1">好</span><span style="--i:2">。</span>
+    </p>
+    <p class="visually-hidden">你好。</p>
+    <p class="boot-sub">把桌子铺开</p>
+    <div class="boot-line" style="--i:0"><span>内容索引</span><b>14 项</b></div>
+    <div class="boot-line" style="--i:1"><span>证据链接</span><b>完好</b></div>
+    <div class="boot-line" style="--i:2"><span>问答服务</span><span class="warn">未连接 · 原型</span></div>
+    <div class="boot-line" style="--i:3"><span>站长 Agent</span><span class="warn">只读 · 不会写入</span></div>
+    <div class="boot-bar"><i></i></div>
+    <button class="boot-skip" type="button">按任意键进入</button>
+  </div>
+</div>
+
+<div class="cursor" aria-hidden="true"><i></i></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="menubar">
+  <span class="menubar-brand">你的名字</span>
+  <span class="menubar-title">桌面</span>
+  <span class="menubar-spacer"></span>
+  <button class="menubar-item" type="button" data-spotlight>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+    搜索 <span class="kbd">⌘K</span>
+  </button>
+  <button class="menubar-item" type="button" data-theme-toggle>浅色</button>
+  <span class="menubar-item menubar-clock mono" aria-live="off"></span>
+</div>
+
+<main class="desktop">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="hills" aria-hidden="true">
+    <svg viewBox="0 0 1440 280" preserveAspectRatio="none">
+      <path class="hill-a" d="M0 180 C 180 120, 320 210, 520 150 C 740 80, 880 190, 1100 140 C 1260 100, 1360 160, 1440 130 L 1440 280 L 0 280 Z"/>
+      <path class="hill-b" d="M0 210 C 220 170, 380 240, 560 190 C 780 130, 940 230, 1160 180 C 1300 150, 1380 210, 1440 190 L 1440 280 L 0 280 Z"/>
+    </svg>
+  </div>
+
+  <section class="stage">
+    <p class="stage-hi" aria-hidden="true">
+      <span style="--i:0">你</span><span style="--i:1">好</span><span style="--i:2">。</span>
+    </p>
+    <h1 class="stage-name">我是 <em>你的名字</em></h1>
+    <p class="stage-line">说出口的事情，要能被核对。</p>
+    <p class="stage-hint">点桌上的纸条，或右边的图标。</p>
+  </section>
+
+  <div class="icons" role="group" aria-label="桌面图标"></div>
+
+  <div class="slips" role="group" aria-label="桌上的证据纸条">
+    <button class="slip" type="button" data-app="projects" style="--x:46%; --y:16%; --r:-9deg; --d:1.2">
+      <span class="slip-tag">项目</span>
+      <strong>示例项目 A</strong>
+      <span>内容问答系统 · 3 份公开证据</span>
+    </button>
+    <button class="slip" type="button" data-app="notes" style="--x:62%; --y:48%; --r:7deg; --d:.7">
+      <span class="slip-tag">见解</span>
+      <strong>需求评审怎么拆</strong>
+      <span>把结论换成可检查的步骤</span>
+    </button>
+    <button class="slip" type="button" data-app="ask" style="--x:42%; --y:62%; --r:-4deg; --d:1">
+      <span class="slip-tag">问答</span>
+      <strong>随时可以问</strong>
+      <span>没有材料时直接说没有</span>
+    </button>
+    <button class="slip slip-photo" type="button" data-app="about" style="--x:58%; --y:12%; --r:3deg; --d:.45">
+      <span class="slip-glow" aria-hidden="true"></span>
+      <span class="slip-tag">经历</span>
+      <strong>工作台的主人</strong>
+      <span>示例占位 · 不是真实肖像</span>
+    </button>
+  </div>
+</main>
+
+<nav class="dock" aria-label="已打开的窗口"></nav>
+
+<aside class="hint">
+  <b>这是原型演示。</b>桌上的纸条、项目、经历都是示例，没有连接真实服务。
+  单击纸条或图标打开窗口，标题栏可拖动，<span class="kbd">⌘K</span> 搜索全站。
+  <br><button type="button">知道了</button>
+</aside>
+
+<script src="https://unpkg.com/three@0.160.1/build/three.min.js" defer></script>
+<script src="assets/intro.js" defer></script>
+<script src="assets/os.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>资料与服务 · 原型 v0.1</title>
+<link rel="stylesheet" href="assets/prototype.css">
+</head>
+<body>
+<div data-slot="header"></div>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">R08 · 后续能力 V3 · 商品均为示例，尚不存在</span>
+      <h1>资料与服务</h1>
+      <p class="soft" style="max-width:46em">
+        只列<strong>实际存在</strong>的东西，写清楚适合谁、不适合谁，支付在第三方平台完成。
+        没有合适的就直说没有，不强行推荐。
+      </p>
+
+      <div class="state-switch" style="margin:18px 0">
+        <span><strong>演示状态：</strong></span>
+        <select id="res-state" data-state-switch="res">
+          <option value="normal">有商品</option>
+          <option value="none">暂无商品（首版默认）</option>
+          <option value="nomatch">推荐时无匹配</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div data-state-group="res" data-state="none">
+        <div class="empty-state">
+          <h3>目前没有对外售卖的资料或服务</h3>
+          <p style="max-width:38em;margin-inline:auto">
+            这是首版的默认状态。PRD 明确：只介绍实际存在的商品，所以在真的有东西之前，这一页就是空的。
+            想聊合作可以走<a href="contact.html">联系页</a>。
+          </p>
+        </div>
+      </div>
+
+      <div data-state-group="res" data-state="nomatch">
+        <div class="card">
+          <h3>按你的情况，没有合适的</h3>
+          <p class="soft">示例对话结果：你描述的是“零基础转行”，现有资料面向已经有工程经验的人，硬推只会浪费你的钱。</p>
+          <p class="soft" style="margin-bottom:0">可以先看免费的<a href="notes.html">见解</a>，或<a href="contact.html">直接问我</a>。</p>
+        </div>
+      </div>
+
+      <div data-state-group="res" data-state="normal">
+        <div class="grid grid-2">
+          <article class="card">
+            <p class="row" style="margin-bottom:8px"><span class="badge badge-neutral">资料</span><span class="badge badge-mock">示例</span></p>
+            <h2 style="font-size:1.2rem">示例资料：Agent 协作 SOP 手册</h2>
+            <p class="soft">一句话说明里面有什么、有多少页、更新频率。</p>
+            <dl class="kv">
+              <dt>适合</dt><dd>示例：已经会写代码、想规范 AI 协作流程的人</dd>
+              <dt>不适合</dt><dd>示例：零基础、想要现成模板直接用的人</dd>
+              <dt>价格</dt><dd>示例金额 · 在第三方平台结算</dd>
+              <dt>退款</dt><dd>按第三方平台规则，本站不处理财务</dd>
+            </dl>
+            <button class="btn btn-primary" type="button" onclick="alert('原型演示：真实站点这里是指向第三方购买页的外链。本站不自建支付（PRD 7.4）。')">到第三方平台购买 ↗</button>
+          </article>
+
+          <article class="card">
+            <p class="row" style="margin-bottom:8px"><span class="badge badge-neutral">服务</span><span class="badge badge-mock">示例</span></p>
+            <h2 style="font-size:1.2rem">示例服务：1 对 1 顾问（60 分钟）</h2>
+            <p class="soft">说明能聊什么、需要你提前准备什么、不承诺什么。</p>
+            <dl class="kv">
+              <dt>适合</dt><dd>示例：有具体项目卡点的人</dd>
+              <dt>不适合</dt><dd>示例：希望代写代做的需求</dd>
+              <dt>价格</dt><dd>示例金额 / 小时</dd>
+            </dl>
+            <a class="btn btn-primary" href="booking.html">查看可预约时间</a>
+          </article>
+        </div>
+
+        <div class="note note-warn" style="margin-top:20px">
+          <strong>边界：</strong>本站不自建支付、不做自动发货、不处理退款（PRD 7.2 / 7.4）。这里只负责“讲清楚是什么、适合谁”，交易在第三方完成。
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-slot="footer"></div>
+<script src="assets/prototype.js"></script>
+</body>
+</html>

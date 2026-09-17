@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>访客洞察 · 原型 v0.1</title>
+<link rel="stylesheet" href="assets/prototype.css">
+</head>
+<body>
+<div data-slot="header"></div>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">R07 · 后续能力 V2 · 数据均为示例</span>
+      <h1>访客洞察（仅站长可见）</h1>
+      <p class="soft" style="max-width:48em">
+        目的只有一个：知道访客在问什么、站内缺什么内容。<strong>不推断访客身份</strong>，样本少的时候直说样本少，
+        不把 7 条记录讲成“用户普遍关心”。
+      </p>
+
+      <div class="state-switch" style="margin:18px 0">
+        <span><strong>演示状态：</strong></span>
+        <select id="insight-state" data-state-switch="insight">
+          <option value="normal">有足够样本</option>
+          <option value="small">样本过少</option>
+          <option value="off">尚未开启收集</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div data-state-group="insight" data-state="off">
+        <div class="empty-state">
+          <h3>还没有开启访客问题收集</h3>
+          <p style="max-width:40em;margin-inline:auto">
+            按 PRD 7.3，开启前需要你确认三件事：<strong>用途说明怎么写</strong>、<strong>保留多少天</strong>、<strong>怎么删除</strong>。
+            在你确认之前，问答不留存任何问题原文，这一页也没有数据。
+          </p>
+          <p><button class="btn btn-primary" type="button" onclick="alert('原型演示：进入收集设置，需要你逐项确认后才生效。')">去设置收集规则</button></p>
+        </div>
+      </div>
+
+      <div data-state-group="insight" data-state="small">
+        <div class="note note-warn">
+          <strong>样本只有 7 条（示例日期起 7 天）。</strong>下面的分布不足以得出结论，只列原始主题，不给百分比、不给趋势图。
+        </div>
+        <table class="data" style="margin-top:16px">
+          <thead><tr><th>主题</th><th>次数</th><th>站内是否有内容</th></tr></thead>
+          <tbody>
+            <tr><td>示例主题：项目 A 的技术细节</td><td>3</td><td><span class="badge badge-ok">有</span></td></tr>
+            <tr><td>示例主题：合作方式</td><td>2</td><td><span class="badge badge-warn">缺</span></td></tr>
+            <tr><td>示例主题：报价</td><td>2</td><td><span class="badge badge-warn">缺</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div data-state-group="insight" data-state="normal">
+        <div class="row" style="margin-bottom:18px">
+          <span class="badge badge-neutral">时间范围：示例日期 ~ 示例日期（30 天）</span>
+          <span class="badge badge-neutral">样本量：182 个问题</span>
+          <span class="badge badge-warn">缺失数据：前 6 天日志中断</span>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>问得最多的主题</h3>
+            <table class="data">
+              <thead><tr><th>主题</th><th>占比</th><th>能否答上</th></tr></thead>
+              <tbody>
+                <tr><td>示例：项目 A 的实现细节</td><td>28%</td><td><span class="badge badge-ok">可答</span></td></tr>
+                <tr><td>示例：是否接外包 / 合作</td><td>19%</td><td><span class="badge badge-danger">无资料</span></td></tr>
+                <tr><td>示例：具体工作年限与公司</td><td>14%</td><td><span class="badge badge-danger">无资料</span></td></tr>
+                <tr><td>示例：文章里提到的做法</td><td>11%</td><td><span class="badge badge-ok">可答</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <h3>内容缺口建议</h3>
+            <ol class="soft">
+              <li>示例：新增“合作与咨询方式”说明（对应 19% 无资料问题）</li>
+              <li>示例：在经历页补充可公开的时间线粒度（14%）</li>
+            </ol>
+            <div class="note note-mock" style="margin-top:10px">
+              建议只是建议。要落到站点上，仍然要走<a href="admin.html">管理端</a>的提案 → 确认流程。
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px">
+          <h3>原始记录（脱敏后）</h3>
+          <table class="data">
+            <thead><tr><th>时间</th><th>脱敏后的问题</th><th>回答状态</th><th>来源页面</th></tr></thead>
+            <tbody>
+              <tr><td>示例日期 14:03</td><td>你在【项目名】里负责什么？</td><td><span class="badge badge-ok">已答</span></td><td>项目详情</td></tr>
+              <tr><td>示例日期 13:51</td><td>可以做【某类】的兼职吗？</td><td><span class="badge badge-warn">无资料</span></td><td>首页</td></tr>
+              <tr><td>示例日期 11:20</td><td>【被脱敏的联系方式】</td><td><span class="badge badge-neutral">已丢弃</span></td><td>问答页</td></tr>
+            </tbody>
+          </table>
+          <p class="muted" style="font-size:.84rem;margin:12px 0 0">
+            脱敏规则示例：去掉邮箱、电话、公司全称与 IP；超过保留期自动删除；站长可随时清空。具体规则待你确认。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-slot="footer"></div>
+<script src="assets/prototype.js"></script>
+</body>
+</html>

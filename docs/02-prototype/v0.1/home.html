@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>首页 · 工作台窗口</title>
+<meta name="description" content="原型演示页面，内容均为示例。">
+<link rel="stylesheet" href="assets/prototype.css">
+</head>
+<body>
+<div data-slot="header"></div>
+
+<main>
+  <section class="section hero-scene">
+    <div class="wrap-narrow" data-reveal>
+      <span class="eyebrow">R01 · 首页 · 示例内容</span>
+      <p class="hello-kicker" aria-hidden="true"><span style="--i:0">你</span><span style="--i:1">好</span><span style="--i:2">。</span></p>
+      <p class="visually-hidden">你好。</p>
+      <h1>
+        我是你的名字。我用 Agent 和工程方法，把某类重复的专业工作变成可验证的<span class="nowrap">系统<button class="ref-token" type="button" data-ref="H1" aria-describedby="src-H1">H1</button>，</span>并把过程<span class="nowrap">写下来<button class="ref-token" type="button" data-ref="H2" aria-describedby="src-H2">H2</button>。</span>
+      </h1>
+      <p class="lede" style="max-width:34em">
+        标题里的编号可以点开。这个站点只有一条规矩：说出口的事情要能被核对。
+      </p>
+      <ul class="source-list" style="max-width:34em;margin-top:var(--s5)">
+        <li class="source-item" id="src-H1"><span class="src-id">H1</span>示例来源：项目 A 的设计文档与评估记录 · <a href="project-detail.html">打开</a></li>
+        <li class="source-item" id="src-H2"><span class="src-id">H2</span>示例来源：见解《我怎么用 Agent 做需求评审》 · <a href="note-detail.html">打开</a></li>
+      </ul>
+      <div class="row" style="margin-top:var(--s7)">
+        <a class="btn btn-primary" href="projects.html">看项目证据</a>
+        <a class="btn" href="about.html">了解经历</a>
+        <a class="btn btn-ghost" href="contact.html">联系</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow">
+      <div class="row-between" style="margin-bottom:var(--s5)">
+        <h2 style="margin:0">项目</h2>
+        <a href="projects.html" class="muted" style="font-size:var(--fs-sm)">全部 3 个</a>
+      </div>
+
+      <ul class="list" data-reveal>
+        <li>
+          <a class="list-link" href="project-detail.html">
+            <div class="row-between">
+              <h3 style="margin:0">示例项目 A · 内容问答系统</h3>
+              <span class="badge badge-ok">进行中</span>
+            </div>
+            <p class="soft" style="margin:var(--s2) 0 0;font-size:var(--fs-sm);max-width:44em">
+              访客要在简历、仓库和文章之间自己拼信息。我负责需求、检索与引用校验、上线评估。
+            </p>
+            <p class="muted tnum" style="margin:var(--s2) 0 0;font-size:var(--fs-micro);font-family:var(--f-data)">独立开发 · 示例区间 · 3 份公开证据</p>
+          </a>
+        </li>
+        <li>
+          <a class="list-link" href="project-detail.html">
+            <div class="row-between">
+              <h3 style="margin:0">示例项目 B · 数据管道重构</h3>
+              <span class="badge badge-neutral">已交付</span>
+            </div>
+            <p class="soft" style="margin:var(--s2) 0 0;font-size:var(--fs-sm);max-width:44em">
+              四人小组里我负责其中两个模块。贡献边界写清楚，不把团队成果写成个人成果。
+            </p>
+            <p class="muted tnum" style="margin:var(--s2) 0 0;font-size:var(--fs-micro);font-family:var(--f-data)">团队 4 人 · 示例区间 · 1 份公开证据</p>
+          </a>
+        </li>
+        <li>
+          <div class="list-link" style="cursor:default">
+            <div class="row-between">
+              <h3 style="margin:0;color:var(--ink-3)">示例项目 C</h3>
+              <span class="badge badge-warn">资料不足</span>
+            </div>
+            <p class="muted" style="margin:var(--s2) 0 0;font-size:var(--fs-sm);max-width:44em">
+              没有可公开的证据，因此不做详情页，也不写成果。状态如实显示，不用“敬请期待”占位。
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow">
+      <div class="row-between" style="margin-bottom:var(--s5)">
+        <h2 style="margin:0">见解</h2>
+        <a href="notes.html" class="muted" style="font-size:var(--fs-sm)">全部文章</a>
+      </div>
+      <ul class="list" data-reveal>
+        <li>
+          <a class="list-link" href="note-detail.html">
+            <div class="row-between">
+              <h3 style="margin:0">我怎么用 Agent 做需求评审</h3>
+              <span class="muted tnum" style="font-size:var(--fs-micro);font-family:var(--f-data)">示例日期 · 6 分钟</span>
+            </div>
+            <p class="soft" style="margin:var(--s2) 0 0;font-size:var(--fs-sm)">把评审拆成可检查的步骤，而不是让模型给个结论。</p>
+          </a>
+        </li>
+        <li>
+          <a class="list-link" href="note-detail.html">
+            <div class="row-between">
+              <h3 style="margin:0">一次返工教会我的事</h3>
+              <span class="muted tnum" style="font-size:var(--fs-micro);font-family:var(--f-data)">示例日期 · 4 分钟</span>
+            </div>
+            <p class="soft" style="margin:var(--s2) 0 0;font-size:var(--fs-sm)">批量替换改坏了页面，以及我后来加的那条校验。</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow" data-reveal>
+      <h2>随时可以问</h2>
+      <p class="soft" style="max-width:38em">
+        回答只基于本站公开内容，并给出能点开的引用；没有材料时直接说没有。
+        问答不可用时，这一块降级成静态说明，页面其余部分照常浏览。
+      </p>
+      <div class="row" style="flex-wrap:nowrap;gap:var(--s2);max-width:34em;margin-top:var(--s4)">
+        <label class="lbl" for="home-q" style="position:absolute;left:-9999px">关于我的经历或项目，你想问什么</label>
+        <input class="field" id="home-q" name="question" autocomplete="off" spellcheck="false"
+               placeholder="例：你在示例项目 A 里具体做了什么…">
+        <a class="btn" href="ask.html">去问答</a>
+      </div>
+      <p class="note note-mock" style="margin-top:var(--s5)">
+        问答是 PRD 的 P1 能力（R04），原型里可以切换有答案 / 无资料 / 服务异常 / 触发上限 / 越权被拒五种状态。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow">
+      <h2 style="margin-bottom:var(--s5)">这个站点本身也是在建项目</h2>
+      <table class="data" data-reveal>
+        <tbody>
+          <tr>
+            <td style="width:64px"><span class="badge badge-ok">V0</span></td>
+            <td>经历、项目、见解、联系可浏览<div class="muted" style="font-size:var(--fs-micro)">本次评审重点</div></td>
+            <td style="text-align:right"><a href="about.html">经历</a> · <a href="projects.html">项目</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-warn">V1</span></td>
+            <td>引用式问答与站长 Agent 内容管理<div class="muted" style="font-size:var(--fs-micro)">尚未实现，原型里是空壳演示</div></td>
+            <td style="text-align:right"><a href="ask.html">问答</a> · <a href="admin.html">管理端</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-warn">V2</span></td>
+            <td>基于脱敏数据的主题与内容缺口报告<div class="muted" style="font-size:var(--fs-micro)">需先确认留存规则</div></td>
+            <td style="text-align:right"><a href="insights.html">洞察</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-warn">V3</span></td>
+            <td>资料购买外链、顾问、预约与订单查询<div class="muted" style="font-size:var(--fs-micro)">第三方能力尚未核验</div></td>
+            <td style="text-align:right"><a href="resources.html">资料</a> · <a href="booking.html">预约</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div data-slot="footer"></div>
+<script src="assets/prototype.js"></script>
+</body>
+</html>

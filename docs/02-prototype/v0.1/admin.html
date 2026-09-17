@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>站长管理端 · 原型 v0.1</title>
+<link rel="stylesheet" href="assets/prototype.css">
+</head>
+<body>
+<div data-slot="header"></div>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">R06 / R10 · 后续能力 V1 与 V4 · 不会真的写入任何内容</span>
+      <div class="row-between">
+        <h1 style="margin:0">站长 Agent 管理端</h1>
+        <div class="row">
+          <span class="badge badge-ok">已登录：站长（唯一管理员）</span>
+          <button class="btn btn-sm" type="button" onclick="alert('原型演示：退出登录。')">退出</button>
+        </div>
+      </div>
+      <p class="soft" style="max-width:48em;margin-top:12px">
+        这一端的核心不是“能改多少东西”，而是<strong>每一次写入都先变成可检查的提案</strong>：看到具体差异 → 你确认 → 才执行 → 结果如实回报。
+        取消等于什么都没发生，失败不会被说成成功。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="admin-shell">
+        <nav class="admin-nav" aria-label="管理端分区">
+          <button type="button" data-tab-group="admin" data-tab-target="tab-proposals" aria-selected="true">待确认提案 <span class="badge badge-warn" style="margin-left:4px">2</span></button>
+          <button type="button" data-tab-group="admin" data-tab-target="tab-history" aria-selected="false">执行历史</button>
+          <button type="button" data-tab-group="admin" data-tab-target="tab-versions" aria-selected="false">内容版本与恢复</button>
+          <button type="button" data-tab-group="admin" data-tab-target="tab-site" aria-selected="false">站点改造（受限）</button>
+          <button type="button" data-tab-group="admin" data-tab-target="tab-rules" aria-selected="false">权限与边界</button>
+        </nav>
+
+        <div>
+          <div id="tab-proposals">
+            <div class="note note-mock" style="margin-bottom:18px">
+              演示顺序建议：①在提案 1 上点“确认并执行”，看结果与重复确认的处理；②在提案 1 上先点“模拟提案被修改”，看已有确认如何失效；
+              ③在提案 2 上确认，看执行失败与恢复；④任意提案点“取消”，看“无写入”的结果。用右上角“重置演示”回到初始状态。
+            </div>
+            <div class="row-between" style="margin-bottom:14px">
+              <h2 style="margin:0">待确认提案</h2>
+              <button class="btn btn-sm" type="button" id="reset">重置演示</button>
+            </div>
+            <div id="proposals" class="stack"></div>
+          </div>
+
+          <div id="tab-history" hidden>
+            <h2>执行历史</h2>
+            <p class="soft">每条记录保存：提案内容、你的确认、实际执行结果三者，三者不一致时以实际结果为准。</p>
+            <table class="data">
+              <thead><tr><th>时间</th><th>操作</th><th>提案</th><th>你的动作</th><th>实际结果</th></tr></thead>
+              <tbody id="history">
+                <tr><td colspan="5" class="muted">本次演示还没有产生记录。到“待确认提案”里操作一次再回来看。</td></tr>
+              </tbody>
+            </table>
+            <div class="note" style="margin-top:16px">
+              <strong>示例的历史记录（写死）：</strong>
+              <table class="data" style="margin-top:8px">
+                <tbody>
+                  <tr><td>示例日期 10:12</td><td>更新项目状态</td><td>P-0087</td><td>已确认</td><td><span class="badge badge-ok">成功</span></td></tr>
+                  <tr><td>示例日期 09:40</td><td>发布文章</td><td>P-0086</td><td>已取消</td><td><span class="badge badge-neutral">无写入</span></td></tr>
+                  <tr><td>示例日期 09:02</td><td>更新经历</td><td>P-0085</td><td>已确认</td><td><span class="badge badge-danger">失败已回滚</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="tab-versions" hidden>
+            <h2>内容版本与恢复</h2>
+            <p class="soft">R06 要求“可查看与恢复上一内容版本”。恢复本身也是一次写操作，同样走提案 → 确认流程。</p>
+            <table class="data">
+              <thead><tr><th>版本</th><th>时间</th><th>来源</th><th>摘要</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>v5（当前）</strong></td><td>示例日期 10:12</td><td>站长 Agent</td>
+                  <td>项目 A 状态改为“进行中”</td><td><span class="badge badge-ok">线上</span></td>
+                </tr>
+                <tr>
+                  <td>v4</td><td>示例日期 09:02</td><td>站长 Agent</td><td>经历页补充技能分组 B</td>
+                  <td><button class="btn btn-sm" type="button" onclick="alert('原型演示：会生成一条"恢复到 v4"的提案，先给你看差异，再由你确认。')">恢复为此版本</button></td>
+                </tr>
+                <tr>
+                  <td>v3</td><td>示例日期 昨天</td><td>手工编辑</td><td>首页文案调整</td>
+                  <td><button class="btn btn-sm" type="button" onclick="alert('原型演示：同上，恢复也需要确认。')">恢复为此版本</button></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="note note-warn" style="margin-top:16px">
+              <strong>M1 不包含：</strong>删除内容、批量操作、自动发邮件（PRD 7.2）。原型里也刻意不给这些按钮，避免评审时误以为已纳入范围。
+            </div>
+          </div>
+
+          <div id="tab-site" hidden>
+            <h2>站点改造（V4 · 可选探索）</h2>
+            <p class="soft">R10 的边界：只允许修改指定范围，先预览再确认，失败可恢复，不允许任意改站点或服务器。</p>
+            <div class="card">
+              <p class="row"><span class="badge badge-neutral">允许范围</span></p>
+              <ul class="soft">
+                <li>首页文案区块、项目卡片排序、见解分类标签</li>
+              </ul>
+              <p class="row"><span class="badge badge-danger">明确禁止</span></p>
+              <ul class="soft">
+                <li>改动服务器配置、依赖、部署脚本、访问控制</li>
+                <li>改动本页之外的任何权限相关代码</li>
+              </ul>
+              <div class="row" style="margin-top:8px">
+                <button class="btn" type="button" onclick="alert('原型演示：生成预览环境链接，确认后才应用到线上。')">生成改造预览</button>
+                <button class="btn" type="button" disabled>应用到线上（需先预览并确认）</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="tab-rules" hidden>
+            <h2>权限与边界</h2>
+            <table class="data">
+              <thead><tr><th>能力</th><th>访客问答</th><th>站长 Agent</th></tr></thead>
+              <tbody>
+                <tr><td>读取公开内容</td><td><span class="badge badge-ok">可以</span></td><td><span class="badge badge-ok">可以</span></td></tr>
+                <tr><td>读取管理员记录 / 日志</td><td><span class="badge badge-danger">不可</span></td><td><span class="badge badge-ok">可以</span></td></tr>
+                <tr><td>写入内容</td><td><span class="badge badge-danger">不可</span></td><td><span class="badge badge-warn">需逐次确认</span></td></tr>
+                <tr><td>删除内容 / 批量操作</td><td><span class="badge badge-danger">不可</span></td><td><span class="badge badge-danger">M1 不开放</span></td></tr>
+                <tr><td>修改服务器 / 权限配置</td><td><span class="badge badge-danger">不可</span></td><td><span class="badge badge-danger">不可</span></td></tr>
+              </tbody>
+            </table>
+            <div class="note" style="margin-top:16px">
+              确认的粒度：<strong>具体操作 + 具体对象 + 具体内容版本</strong>。提案一旦变化，之前的确认自动失效，必须重新看差异再确认（PRD 7.3）。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-slot="footer"></div>
+<script src="assets/prototype.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* 提案演示状态机：
+     draft --确认--> executing --> done | failed(可恢复)
+     draft --取消--> cancelled（无写入）
+     draft --提案被修改--> draft（版本号 +1，已有确认失效） */
+
+  var INITIAL = [
+    {
+      id: 'P-0091',
+      title: '更新经历页「当前状态」',
+      target: 'about.html · 一句话简介 · 当前状态字段',
+      rev: 1,
+      status: 'draft',
+      confirmedRev: null,
+      willFail: false,
+      diff: [
+        { type: 'ctx', text: '  当前状态：' },
+        { type: 'del', text: '- 在职 / 接受咨询合作' },
+        { type: 'add', text: '+ 在职 / 暂不接受新的咨询' }
+      ],
+      why: '你在对话里说本月排满了，先关掉咨询入口。',
+      affects: ['经历页可见文案', '问答引用该字段时的回答']
+    },
+    {
+      id: 'P-0092',
+      title: '发布示例文章《一次返工教会我的事》',
+      target: 'notes.html + note-detail.html（新增一篇）',
+      rev: 1,
+      status: 'draft',
+      confirmedRev: null,
+      willFail: true,
+      diff: [
+        { type: 'ctx', text: '  见解列表：' },
+        { type: 'add', text: '+ 新增文章：一次返工教会我的事（约 1200 字）' },
+        { type: 'add', text: '+ 发布时间：立即' },
+        { type: 'ctx', text: '  首页最新见解：会随之更新为这一篇' }
+      ],
+      why: '草稿已写完，你要求今天发布。',
+      affects: ['见解列表', '首页最新见解', '站点地图'],
+      failNote: '示例故障：写入内容仓库时超时，未确认是否落盘。'
+    }
+  ];
+
+  var state = JSON.parse(JSON.stringify(INITIAL));
+  var box = document.getElementById('proposals');
+  var historyBody = document.getElementById('history');
+  var historyRows = [];
+
+  function addHistory(row) {
+    historyRows.unshift(row);
+    historyBody.innerHTML = historyRows.map(function (r) {
+      return '<tr><td>' + r.time + '</td><td>' + r.action + '</td><td>' + r.id +
+        ' (rev ' + r.rev + ')</td><td>' + r.act + '</td><td>' + r.result + '</td></tr>';
+    }).join('');
+  }
+
+  function stepline(p) {
+    var steps = ['提案', '看差异', '你确认', '执行', '结果'];
+    var reached = { draft: 2, executing: 3, done: 5, failed: 5, cancelled: 3, restored: 5 }[p.status] || 1;
+    return '<div class="stepline">' + steps.map(function (s, i) {
+      var idx = i + 1;
+      if (idx < reached) return '<span data-done="true">' + s + '</span>';
+      if (idx === reached) return '<span data-active="true">' + s + '</span>';
+      return '<span>' + s + '</span>';
+    }).join('') + '</div>';
+  }
+
+  function diffHtml(p) {
+    return '<div class="diff">' + p.diff.map(function (line) {
+      return '<div class="' + line.type + '">' + line.text + '</div>';
+    }).join('') + '</div>';
+  }
+
+  function statusBadge(p) {
+    var map = {
+      draft: '<span class="badge badge-warn">待确认</span>',
+      executing: '<span class="badge badge-neutral">执行中</span>',
+      done: '<span class="badge badge-ok">已执行</span>',
+      failed: '<span class="badge badge-danger">执行失败</span>',
+      cancelled: '<span class="badge badge-neutral">已取消 · 无写入</span>',
+      restored: '<span class="badge badge-ok">已恢复到执行前</span>'
+    };
+    return map[p.status] || '';
+  }
+
+  function resultBlock(p) {
+    if (p.status === 'executing') {
+      return '<div class="note"><strong>正在执行…</strong><div class="skeleton" style="width:60%;margin-top:8px"></div></div>';
+    }
+    if (p.status === 'done') {
+      return '<div class="note note-ok"><strong>执行成功。</strong><br>' +
+        '实际改动：' + p.affects.join('、') + '。<br>' +
+        '时间 ' + p.doneAt + ' · 对应 rev ' + p.confirmedRev + ' · ' +
+        '<a href="about.html">打开改动后的页面核对</a></div>';
+    }
+    if (p.status === 'failed') {
+      return '<div class="note note-danger"><strong>执行失败，内容未发布。</strong><br>' +
+        p.failNote + '<br>' +
+        '已停止后续步骤，没有报告成功。你可以恢复到执行前状态，或修改提案重试。</div>';
+    }
+    if (p.status === 'restored') {
+      return '<div class="note note-ok"><strong>已恢复到执行前状态。</strong><br>' +
+        '当前线上内容与提案执行前一致，见解列表没有新增文章。</div>';
+    }
+    if (p.status === 'cancelled') {
+      return '<div class="note"><strong>已取消，没有发生任何写入。</strong><br>' +
+        '线上内容与取消前完全一致；这条提案保留在历史里可追溯。</div>';
+    }
+    return '';
+  }
+
+  function actions(p) {
+    if (p.status === 'draft') {
+      var confirmStale = p.confirmedRev !== null && p.confirmedRev !== p.rev;
+      return (confirmStale ? '<div class="note note-warn" style="margin-bottom:10px"><strong>之前的确认已失效。</strong>提案内容已更新到 rev ' + p.rev + '，需要重新检查差异后再确认。</div>' : '') +
+        '<div class="row">' +
+        '<button class="btn btn-primary" data-act="confirm" data-id="' + p.id + '">确认并执行</button>' +
+        '<button class="btn btn-danger" data-act="cancel" data-id="' + p.id + '">取消</button>' +
+        '<button class="btn btn-ghost btn-sm" data-act="amend" data-id="' + p.id + '">模拟提案被修改</button>' +
+        '</div>';
+    }
+    if (p.status === 'done') {
+      // 提示放在按钮上方：点完按钮视线还停在原处，提示出现在下方容易被漏看。
+      return (p.dupNote ? '<div class="note note-warn" style="margin-bottom:10px">' + p.dupNote + '</div>' : '') +
+        '<div class="row">' +
+        '<button class="btn" data-act="confirm" data-id="' + p.id + '">再次点击确认（演示）</button>' +
+        '<span class="muted" style="font-size:.85rem">重复确认不会重复发布</span></div>';
+    }
+    if (p.status === 'failed') {
+      return '<div class="row">' +
+        '<button class="btn btn-primary" data-act="restore" data-id="' + p.id + '">恢复到执行前</button>' +
+        '<button class="btn" data-act="retry" data-id="' + p.id + '">修改提案后重试</button></div>';
+    }
+    if (p.status === 'cancelled' || p.status === 'restored') {
+      return '<div class="row"><button class="btn btn-sm" data-act="reopen" data-id="' + p.id + '">重新打开提案</button></div>';
+    }
+    return '';
+  }
+
+  function render() {
+    box.innerHTML = state.map(function (p) {
+      return '<article class="card">' +
+        '<div class="row-between" style="margin-bottom:6px">' +
+        '<h3 style="margin:0">' + p.title + '</h3>' +
+        '<span class="row">' + statusBadge(p) +
+        '<span class="badge badge-neutral">' + p.id + ' · rev ' + p.rev + '</span></span>' +
+        '</div>' +
+        stepline(p) +
+        '<dl class="kv" style="margin-bottom:12px">' +
+        '<dt>作用对象</dt><dd>' + p.target + '</dd>' +
+        '<dt>为什么改</dt><dd>' + p.why + '</dd>' +
+        '<dt>影响范围</dt><dd>' + p.affects.join('、') + '</dd>' +
+        '</dl>' +
+        '<p class="lbl">具体差异（确认前必须能看到）</p>' +
+        diffHtml(p) +
+        '<div style="margin-top:14px">' + resultBlock(p) + '</div>' +
+        '<div style="margin-top:14px">' + actions(p) + '</div>' +
+        '</article>';
+    }).join('');
+  }
+
+  function find(id) {
+    for (var i = 0; i < state.length; i++) if (state[i].id === id) return state[i];
+    return null;
+  }
+
+  box.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-act]');
+    if (!btn) return;
+    var p = find(btn.getAttribute('data-id'));
+    if (!p) return;
+    var act = btn.getAttribute('data-act');
+
+    if (act === 'confirm' && p.status === 'done') {
+      p.dupNote = '这条提案（' + p.id + ' rev ' + p.confirmedRev + '）已在 ' + p.doneAt +
+        ' 执行过，不会重复发布。要再改一次，请生成新的提案。';
+      render();
+      return;
+    }
+
+    if (act === 'confirm') {
+      p.confirmedRev = p.rev;
+      p.status = 'executing';
+      render();
+      window.setTimeout(function () {
+        p.doneAt = window.Proto.now();
+        p.status = p.willFail ? 'failed' : 'done';
+        addHistory({
+          time: p.doneAt, action: p.title, id: p.id, rev: p.confirmedRev,
+          act: '已确认',
+          result: p.willFail
+            ? '<span class="badge badge-danger">失败 · 未写入</span>'
+            : '<span class="badge badge-ok">成功</span>'
+        });
+        render();
+      }, 1200);
+      return;
+    }
+
+    if (act === 'cancel') {
+      p.status = 'cancelled';
+      addHistory({
+        time: window.Proto.now(), action: p.title, id: p.id, rev: p.rev,
+        act: '已取消', result: '<span class="badge badge-neutral">无写入</span>'
+      });
+      render();
+      return;
+    }
+
+    if (act === 'amend') {
+      p.rev += 1;
+      p.status = 'draft';
+      p.diff = p.diff.concat([{ type: 'add', text: '+ （rev ' + p.rev + ' 新增）示例：同时更新页面底部的更新时间' }]);
+      render();
+      return;
+    }
+
+    if (act === 'restore') {
+      p.status = 'restored';
+      addHistory({
+        time: window.Proto.now(), action: '恢复：' + p.title, id: p.id, rev: p.rev,
+        act: '已确认恢复', result: '<span class="badge badge-ok">已回到执行前</span>'
+      });
+      render();
+      return;
+    }
+
+    if (act === 'retry' || act === 'reopen') {
+      p.rev += 1;
+      p.status = 'draft';
+      p.confirmedRev = null;
+      p.dupNote = null;
+      if (act === 'retry') p.willFail = false;
+      render();
+    }
+  });
+
+  document.getElementById('reset').addEventListener('click', function () {
+    state = JSON.parse(JSON.stringify(INITIAL));
+    historyRows = [];
+    historyBody.innerHTML = '<tr><td colspan="5" class="muted">本次演示还没有产生记录。到“待确认提案”里操作一次再回来看。</td></tr>';
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

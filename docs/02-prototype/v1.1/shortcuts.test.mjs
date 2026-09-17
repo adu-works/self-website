@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {shortcutAction} from './dist/shortcuts.mjs';
+const key=(key,extra={})=>({key,...extra});
+assert.equal(shortcutAction(key('f'),['open-furnace','carry']),'carry');
+assert.equal(shortcutAction(key('r'),['put-down','smash']),'put-down');
+assert.equal(shortcutAction(key('x'),['put-down','smash']),'smash');
+assert.equal(shortcutAction(key('e'),['put-down','smash']),null);
+assert.equal(shortcutAction(key('x'),['hammer','carry']),null);
+assert.equal(shortcutAction(key('E'),['dig']),'dig');
+for(const flag of ['repeat','isComposing','ctrlKey','metaKey','altKey','shiftKey'])assert.equal(shortcutAction(key('e',{[flag]:true}),['dig']),null);
+assert.equal(shortcutAction(key('e'),['dig'],true),null);
+assert.equal(shortcutAction(key('g'),['open-hatch','walk-ship']),'walk-ship');
+console.log('PASS: contextual keys, separate drop/smash, repeated/composing/modified/blocked input ignored');
