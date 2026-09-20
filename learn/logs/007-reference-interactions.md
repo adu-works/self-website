@@ -26,7 +26,7 @@
 
 ## 测试
 
-实际操作及局限列在[深入交互记录](../../docs/02-prototype/reference-interactions.md)。这属于探索性体验，不是自动化测试通过报告。文档交付检查本地链接与当前版本引用，不运行无关产品测试。
+实际操作及局限列在[深入交互记录](https://github.com/adu-works/self-website/blob/abaccfeeb3b35a4b0e3b25f1af59357231e3a3b1/docs/02-prototype/reference-interactions.md)。这属于探索性体验，不是自动化测试通过报告。文档交付检查本地链接与当前版本引用，不运行无关产品测试。
 
 ## 你自己动手（练习）
 
