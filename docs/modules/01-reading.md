@@ -62,3 +62,18 @@ JavaGuide 的配置按文章路径或目录指定解锁范围；我们改成后�
 ## 怎样检查
 
 逐一打开首页每种卡片，在手机与电脑检查长标题、长正文、大图和代码。检查同一详情从首页、列表和 Chat 三种来路的返回；直接分享链接仍可读。示例专题至少包含两篇文章以验证上下篇，空专题也有正确状态。
+
+### TianPan.co 补充参考（2026-09-20）
+
+核对首页、课程页、长文章、订阅介绍以及作者公开仓库。以下为设计建议，不代表已批准或已改原型：
+
+- 首页突出一个清楚的个人方向，再用作品和文章支撑。我们主题可以广，但第一屏仍要有共同主线，不能只是栏目堆叠；具体定位由真实个人材料决定。
+- 增加“从这里开始”的精选阅读路径，区别于按时间排列的最近文章。专题应解释读者能解决什么问题，再列阅读顺序。
+- 免费文章可在相关位置连接一个匹配的商品及试读，不能每篇机械插入全部商品；没有相关商品就不显示。
+- 篇末加入简短作者介绍、相关内容和关注入口，让搜索进入单篇的读者也能认识作者。关注内容更新与购买权益是不同动作，不混叫“订阅”。
+
+参考站有 Free/Insider 课程标识、专题目录、RSS 和会员方案，但没有核验真实支付或后台权限。我们仍按逐商品微信人工成交设计，不因参考站存在会员套餐就切换为订阅制。
+
+仓库结论：`puncsky/puncsky.github.com` 明确标为 deprecated，是旧站；`puncsky/system-design-and-architecture` 主要是内容、目录和构建文件，不是当前整站。作者架构文章提到 `packages/website` 与 `packages/chat-tianpan`，但此次未找到对应公开完整源码，不能当作可直接 fork 的模板或确认其当前技术栈。
+
+来源：[首页](https://tianpan.co/)、[课程](https://tianpan.co/course)、[会员介绍](https://tianpan.co/pricing)、[内容仓库](https://github.com/puncsky/system-design-and-architecture)、[旧站仓库](https://github.com/puncsky/puncsky.github.com)、[作者的架构说明](https://tianpan.co/blog/2025/01/13/launching-tianpan-co-v3)。
