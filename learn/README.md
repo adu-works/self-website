@@ -1,6 +1,6 @@
 # 学习与协作
 
-每次交付的真实过程都在 [logs/](logs/)，最新是 [019：权限、Agent 与文档重整](logs/019-docs-access-agent-review.md)。旧日志中的旧目录链接指向 Git 历史，仅用于理解当时的工作，不是当前要求。
+每次交付的真实过程都在 [logs/](logs/)，最新是 [020：CS-Base 阅读设计参考](logs/020-cs-base-reference.md)。旧日志中的旧目录链接指向 Git 历史，仅用于理解当时的工作，不是当前要求。
 
 ## 以后怎样与 AI 一起维护
 
