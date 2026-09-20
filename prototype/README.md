@@ -1,4 +1,4 @@
-# 当前交互原型 · v2.0.0
+# 当前交互原型 · v2.0.1
 
 [Sites 私有预览](https://mars-fieldnotes.hlb424559864.chatgpt.site) · [PRD](../docs/PRD.md) · [验证记录](VALIDATION.md)
 
@@ -15,3 +15,7 @@
 2026-09-20：Sites 版本 9 部署成功，所有者私有访问未改变。
 - Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_62289cb56150819193836051d4e6d8f5`
 - Deployment：`appgdep_6aafdedf06e081919fbef65b275d5fcb`
+
+2026-09-20：v2.0.1 已更新至 Sites 版本 10，精选阅读、专题目录、篇末作者与相关商品已加入；访问范围不变。
+- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_27e199a33b508191a6af20d91e16550e`
+- Deployment：`appgdep_6aafee56df308191ad8fae1ed91390aa`

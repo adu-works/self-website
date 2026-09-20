@@ -77,3 +77,5 @@ JavaGuide 的配置按文章路径或目录指定解锁范围；我们改成后�
 仓库结论：`puncsky/puncsky.github.com` 明确标为 deprecated，是旧站；`puncsky/system-design-and-architecture` 主要是内容、目录和构建文件，不是当前整站。作者架构文章提到 `packages/website` 与 `packages/chat-tianpan`，但此次未找到对应公开完整源码，不能当作可直接 fork 的模板或确认其当前技术栈。
 
 来源：[首页](https://tianpan.co/)、[课程](https://tianpan.co/course)、[会员介绍](https://tianpan.co/pricing)、[内容仓库](https://github.com/puncsky/system-design-and-architecture)、[旧站仓库](https://github.com/puncsky/puncsky.github.com)、[作者的架构说明](https://tianpan.co/blog/2025/01/13/launching-tianpan-co-v3)。
+
+上述阅读路径、专题目录、篇末作者与相关商品建议已获本轮修改授权，并落实为 v2.0.1 原型。一个文章可出现于不同精选路径，下一篇遵循当前进入的专题；最后一篇明确结束，直接打开文章使用默认关联专题。商品关联由编辑明确指定，不强推无关商品。示例内容不代表真实在售资料。
