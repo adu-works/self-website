@@ -73,3 +73,5 @@ GitHub 没有“同一公开仓库里某个文件夹私有”的保护方式。�
 合同优先核对：授权的语言、地域、载体和期限；是否独家；版税按定价还是实际收入、退货扣减和结算周期；出版期限及未出版/停售后的权利回归；网站试读、飞书资料、电子书、音频、课程和翻译权是否保留。不要未经评估就授予全球、永久、所有媒介的全部权利。签约前应由熟悉出版合同的人核阅具体条款。
 
 依据（2026-09-21 核对）：[参考书 LICENSE](https://github.com/bojieli/ai-agent-book/blob/main/LICENSE)、[Apache 2.0 原文](https://www.apache.org/licenses/LICENSE-2.0.html)、[GitHub 许可说明](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)、[现行著作权法](https://www.ncac.gov.cn/xxfb/flfg/flfg_532/202103/t20210309_50530.html)、[清华大学出版社投稿入口](https://www.tup.tsinghua.edu.cn/contactus/welcome)。以上为产品与运营建议，不代替具体合同的法律判断。
+
+书架动效：桌面封面随横移轻微转向，首尾按钮禁用；一屏能放下时隐藏按钮。手机与减少动效保持封面平直，不自动轮播。

@@ -1,4 +1,4 @@
-# 当前交互原型 · v2.4.0
+# 当前交互原型 · v2.4.1
 
 [Sites 私有预览](https://mars-fieldnotes.hlb424559864.chatgpt.site/#/home) · [PRD](../docs/PRD.md) · [验证记录](VALIDATION.md)
 
@@ -28,10 +28,10 @@ node --test prototype/*.test.mjs
 
 原型只有这一份，旧部署与旧设计查 Git 历史。当前修改仍待用户审美和阶段评审。Sites 保持所有者私有，部署记录在本次交付结果中。
 
-## 当前部署
+## 本轮交互修订
 
-2026-09-21：v2.4.0 已发布为 Sites 版本 14，状态 succeeded，保持所有者私有。
+v2.4.1：作品按四阶段组装，可点选阶段；首页视频有片段编号和首尾状态，展开继承播放进度；书架随横移轻转，到边界禁用按钮。短窗口、手机和减少动效使用稳定布局。当前发布结果见本次交付，访问范围不变。
 
-- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_2889ee2e48d88191a456f6c8379d9180`
-- Deployment：`appgdep_6ab0cb6bbf68819183a83ff9cf6f0381`
-- 发布源码提交：`6fec94e5d8d8fb65d550af30a5eb064239c3351a`（Sites 源仓库）
+2026-09-21：本轮已发布至 Sites 版本 15，状态 succeeded，保持所有者私有。
+- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_fe6e64906afc819198a4fb821d180efb`
+- Deployment：`appgdep_6ab0e00191c4819183e81e097d0f7e98`
