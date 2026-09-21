@@ -1,6 +1,6 @@
 # 学习与协作
 
-每次交付的真实过程都在 [logs/](logs/)，最新是 [036：机械拆装镜头](logs/036-mechanical-case-study.md)。旧日志中的旧目录链接指向 Git 历史，仅用于理解当时的工作，不是当前要求。
+每次交付的真实过程都在 [logs/](logs/)，最新是 [037：项目功能叙事](logs/037-product-feature-story.md)。旧日志中的旧目录链接指向 Git 历史，仅用于理解当时的工作，不是当前要求。
 
 ## 以后怎样与 AI 一起维护
 
@@ -36,3 +36,5 @@ git push origin main
 上述账号切换适用于已经通过 GitHub CLI 登录两个账号，并由它提供 HTTPS 凭据的环境；它会影响之后使用 gh 的身份。没登录时先运行 `gh auth login --hostname github.com --git-protocol https`。操作结束若要切回，运行 `gh auth switch --hostname github.com --user Lingbo-Huang`。不要把 token 写进仓库、命令示例或远程地址。
 
 动效借鉴先确定对象、页面、操作、变化与价值；参考模型拆解不能被替换成栏目轮播。先做一个具体项目的镜头供评审，再推广到其他项目。
+
+参考动效要分别确认“表现技巧”和“展示对象”。本次返工提醒：用户喜欢引擎的拆解力度，并不代表要用机械体表达所有项目。先以实际页面讲清功能与价值，再选择表现技巧。

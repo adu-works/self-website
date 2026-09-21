@@ -1,4 +1,4 @@
-# 当前交互原型 · v2.6.0
+# 当前交互原型 · v2.7.0
 
 [Sites 私有预览](https://mars-fieldnotes.hlb424559864.chatgpt.site/#/home) · [PRD](../docs/PRD.md) · [验证记录](VALIDATION.md)
 
@@ -23,17 +23,17 @@ node --test prototype/*.test.mjs
 - `dist/home-content.mjs` / `home-content.css`：公开最新动态示例、作品卡和滑动书架。
 - `dist/gallery.mjs` / `gallery.css`：首页视频画廊，负责滚动、全屏和播放清理。
 - `dist/media/`：原创程序动态样片与封面，非个人实拍，来源见 [素材说明](ASSET-SOURCES.md)。
-- `dist/assembly.mjs` / `assembly.css`：单件作品详情滚动叙事；`project-scene.mjs` 按需创建真实三维界面模型；手机与减少动效静态呈现。
+- `dist/assembly.mjs` / `assembly.css`：单件作品详情滚动叙事；`case-content.mjs` 定义十二段内容，`project-scene.mjs` 按需编排实际原型页面；手机与减少动效静态呈现。
 - `books/independent-site/`：公开示例书稿；`build-books.mjs` 生成供 `dist/books.mjs` 使用的数据。
 
 原型只有这一份，旧部署与旧设计查 Git 历史。当前修改仍待用户审美和阶段评审。Sites 保持所有者私有，部署记录在本次交付结果中。
 
 ## 本轮交互修订
 
-v2.6.0：个人空间详情用原创环形机械模型展示六段拆装镜头，提供实体与结构线稿切换、发光、旋转部件、暂停、跳过和窄窗口构图。模型是功能关系的概念表达，非实际硬件或真实 AI 成果。首页和列表不加载三维。
+v2.7.0：用十二段实际原型页面展示这个个人网站的功能与特色。正文/目录分层、书封展开、协作按钮突出、会话引用与提案差异分别呈现。可滚动、选择章节、上一段/下一段、跳过或直接打开对应功能。
 
-`project-scene.mjs` 管理几何、材质和后处理；`assembly.mjs` 管理镜头、滚动与生命周期。减少动效与小屏显示静态结构图。当前视觉待用户评审。
+最多挂载两个相邻章节；展示框不参与交互，模拟问答和提案不会保存或发布。小屏、短窗口、减少动效保留完整文字与入口。正式产品采用共享组件与公开演示数据，不嵌入真实后台。
 
-2026-09-21：Sites 版本 18 发布成功，保持所有者私有。
-- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_2b88232de3d48191a780460f47a1bba0`
-- Deployment：`appgdep_6ab0f32eb3f88191be9b7c9372fa8b7e`
+2026-09-21：Sites 版本 19 发布成功，保持所有者私有。
+- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_7a5cc3205dcc81919abe6c85418f38e8`
+- Deployment：`appgdep_6ab0fbc75fb48191962e19b1edac51cf`
