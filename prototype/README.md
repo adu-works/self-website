@@ -1,4 +1,4 @@
-# 当前交互原型 · v2.0.1
+# 当前交互原型 · v2.1.0
 
 [Sites 私有预览](https://mars-fieldnotes.hlb424559864.chatgpt.site) · [PRD](../docs/PRD.md) · [验证记录](VALIDATION.md)
 
@@ -16,6 +16,8 @@
 - Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_62289cb56150819193836051d4e6d8f5`
 - Deployment：`appgdep_6aafdedf06e081919fbef65b275d5fcb`
 
-2026-09-20：v2.0.1 已更新至 Sites 版本 10，精选阅读、专题目录、篇末作者与相关商品已加入；访问范围不变。
+2026-09-20：v2.1.0 已更新至 Sites 版本 10，精选阅读、专题目录、篇末作者与相关商品已加入；访问范围不变。
 - Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_27e199a33b508191a6af20d91e16550e`
 - Deployment：`appgdep_6aafee56df308191ad8fae1ed91390aa`
+
+书籍原型：`dist/books.mjs` 渲染、`dist/books.css` 排版；`books/independent-site/*.md` 是 GitHub 查看/编辑入口对应的公开示例源文件。改稿后运行 `node prototype/build-books.mjs`，再预览和发布。当前无自动 PR 或自动发布。
