@@ -16,3 +16,7 @@ Current file: `dist/astronaut.glb` (original download name astronaut-human.glb).
 ## v2.5.0 单件作品拆解
 
 `project-scene.mjs` 的目录、正文、问答与来源贴图由 Canvas 绘制原创示例 UI，非真实产品截图。复用 `three.module.js`；未取用 Anime.js 引擎模型或其纹理。
+
+## v2.6.0 Mechanical case study
+
+`project-scene.mjs` independently constructs annuli, bevels, housings, fins, aperture blades and nested gimbals using the existing MIT-licensed Three.js. All labels/textures and `engine-cover.svg` are original diagrams. The Anime.js site was inspected as an aesthetic/interaction reference; no GLB assets, textures or site implementation were copied. The instrument is explicitly a conceptual visualization of prototype functionality.

@@ -1,4 +1,4 @@
-# 当前交互原型 · v2.5.1
+# 当前交互原型 · v2.6.0
 
 [Sites 私有预览](https://mars-fieldnotes.hlb424559864.chatgpt.site/#/home) · [PRD](../docs/PRD.md) · [验证记录](VALIDATION.md)
 
@@ -30,10 +30,10 @@ node --test prototype/*.test.mjs
 
 ## 本轮交互修订
 
-v2.5.1：作品列表只放作品，个人空间详情提供全貌、拆解、阅读、引用、归位五个镜头。复用 Three.js，原创 UI 纹理不代表真实业务截图。手机、短窗口、减少动效与 WebGL 失败展示完整静态说明。仍待用户评审。
+v2.6.0：个人空间详情用原创环形机械模型展示六段拆装镜头，提供实体与结构线稿切换、发光、旋转部件、暂停、跳过和窄窗口构图。模型是功能关系的概念表达，非实际硬件或真实 AI 成果。首页和列表不加载三维。
 
-2026-09-21：Sites 版本 17 发布成功，保持所有者私有。
-- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_2e67a3e2b6e88191b402d8f5abf1ba54`
-- Deployment：`appgdep_6ab0eeccff4c8191b31d3917678e715b`
+`project-scene.mjs` 管理几何、材质和后处理；`assembly.mjs` 管理镜头、滚动与生命周期。减少动效与小屏显示静态结构图。当前视觉待用户评审。
 
-窄桌面使用上文下图并保留三维。仅小屏 ≤480px、极短窗口 ≤420px、减少动效或 WebGL 故障静态降级，并说明原因。
+2026-09-21：Sites 版本 18 发布成功，保持所有者私有。
+- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_2b88232de3d48191a780460f47a1bba0`
+- Deployment：`appgdep_6ab0f32eb3f88191be9b7c9372fa8b7e`
