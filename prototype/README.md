@@ -4,7 +4,7 @@
 
 默认入口是个人主页：文字、作品、小店、关于与社媒。文章与商品使用不同详情版式；商品可打开微信咨询弹窗。公共 Chat 提供模拟回答与章节引用；站长工作台演示订单、客户和草稿提案。所有文章、价格、订单、AI 均明确标注示例，不开放真实购买或收集 Key。
 
-火星作为可选作品保留在 `dist/explore.html`；其旧配置与旧主站属于历史交互演示，固定链接可回新版首页。后续如保留正式实验，应删除旧配置与旧站路由。没有新建版本目录。
+火星退出主站展示与首版范围，历史原型保留在 `dist/explore.html`；其旧配置与旧主站属于历史交互演示，固定链接可回新版首页。后续如保留正式实验，应删除旧配置与旧站路由。没有新建版本目录。
 
 本地启动：在根目录运行 `python3 -m http.server 4788 --bind 127.0.0.1 --directory prototype/dist`。检查：`node --test prototype/*.test.mjs`。
 
@@ -32,3 +32,9 @@ v2.2.0：新增 gallery.mjs/gallery.css，首页与作品页共享横向画廊�
 2026-09-21：v2.2.0 已发布至 Sites 版本 12，仍为所有者私有。
 - Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_e0c4d1c0fba08191947bee0aef0c0efc`
 - Deployment：`appgdep_6ab0c30090248191a4ffc672fc9e6ce0`
+
+v2.3.0：作品页新增 assembly.mjs/assembly.css，以滚动组装文字、作品、小店界面解释价值；手机/减少动效直接展示。火星从作品列表和主画廊移出，仅保留历史深链。画廊改用自制排版与界面示意，不冒充个人照片。
+
+2026-09-21：v2.3.0 已发布至 Sites 版本 13，保持所有者私有。
+- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_61c3a2ff34e081919dbc03d88ad21f45`
+- Deployment：`appgdep_6ab0c49eec5c819185a2adff695c19fc`
