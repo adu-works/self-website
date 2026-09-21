@@ -1,6 +1,6 @@
 # 06 · 火星体验、工程底座与上线
 
-> v3.0 · 待评审。主站先服务阅读与购买，3D 为可选作品。
+> v3.2 · 待评审。主站先服务阅读与购买，3D 为可选作品。
 
 ## 主站与实验分开
 
@@ -12,19 +12,24 @@
 
 ## 技术怎么组成
 
-| 部分 | 推荐选择 | 为什么 |
+当前没有生产后端。原型用 HTML、CSS、JavaScript；本地 `python3 -m http.server` 只负责提供静态文件，不是业务后端。
+
+2026-09-21 用户提出 Python 工程学习目标后，建议改为以下组合，待用户评审。这替代旧的 TypeScript 全栈建议，不代表已完成迁移或批准开发。
+
+| 部分 | 推荐选择 | 职责 |
 |---|---|---|
-| 网页与服务端 | Next.js + TypeScript | 一套语言完成界面、内容接口和流式回答，方便你学习与修改 |
-| 数据、登录、图片 | Supabase 的 PostgreSQL、Auth、Storage | 减少自己维护账号与上传服务；权限仍由我们设计和验证 |
-| 模型接入 | Vercel AI SDK | 共用流式和工具基础，保持访客与站长权限独立 |
-| 火星 | 独立 Three.js 模块 | 重用原型素材与纯逻辑，不让 3D 拖累阅读页 |
-| 检查 | Zod、Vitest、Playwright | 分别检查输入、纯逻辑和真实页面操作 |
+| 前端 | Next.js / React + TypeScript + CSS | 页面、交互、服务器渲染与 API 客户端，不重复写业务权限 |
+| 后端 | Python + FastAPI + Pydantic | 校验输入、登录权限、内容、订单与 Agent 服务 |
+| 数据层 | PostgreSQL + SQLAlchemy 2 + Alembic | 数据读写、事务与可追踪的表结构迁移 |
+| 托管服务 | Supabase Auth / PostgreSQL / Storage | 托管登录、数据库和附件；Python 仍执行本站权限检查 |
+| 模型 | 选定厂商的 Python SDK + 本站小型工具流程 | 先做有限只读调用和提案，不引入多 Agent 编排 |
+| 检查 | pytest、Ruff、mypy；前端 Vitest、Playwright | 后端逻辑/集成、格式和类型，前端状态及端到端操作 |
 
-以上均是推荐，未购买或安装。开发起点先验证部署地区网络、流式连接与厂商接入，再锁定依赖版本。正式部署需要支持服务端的环境；Sites 当前承载静态原型，不能被当作现成的正式权限后台。[Next.js 自托管说明](https://nextjs.org/docs/app/guides/self-hosting)
+两种语言会增加部署和接口维护成本，但后端职责完整，适合用户系统学习 Python。FastAPI 提供基于 Python 类型与 Pydantic 的输入模型、OpenAPI 接口描述；我们用契约生成前端类型，避免手写两套字段。[FastAPI 官方说明](https://fastapi.tiangolo.com/features/)
 
-数据库开启行级权限，匿名不能直接读草稿或受限正文；对外接口在服务器统一检查。服务端高权限密钥不发浏览器，使用它的代码不能绕过本站权限规则。[Supabase 权限说明](https://supabase.com/docs/guides/database/postgres/row-level-security)
+部署建议同域反向代理：网页请求交给 Next.js，`/api/` 交给 FastAPI。生产须支持 Node 与 Python 进程；Sites 继续用于静态原型。上线地区、预算和网络能力先验证再选托管商、锁版本。完整请求流程、认证、数据权限与部署边界见 [功能实现方案](../IMPLEMENTATION.md)，不在此重复。
 
-建议正式代码按 `content`、`access`、`chat`、`admin-agent`、`scene` 五个功能目录组织；接口靠近所属模块。先不建微服务、独立向量库、消息队列或全站发布快照。单篇内容版本加数据库事务足够支撑当前规模；达到瓶颈再扩展。
+单个 Python 应用按功能模块组织，不建微服务、独立向量库或消息队列。迁移脚本维护数据库结构；后台和 Agent 复用同一业务服务，不能各写一套发布逻辑。
 
 ## 加载与降级
 

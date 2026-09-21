@@ -1,11 +1,12 @@
 # 黄凌波 · 文字、作品与独立实践
 
-原型 v2.1.0 已按“个人影响力 + 售卖入口”重新设计，待评审；文档 v3.1 同步调整，正式开发未开始。
+原型 v2.1.0 已按“个人影响力 + 售卖入口”重新设计，待评审；文档 v3.2 同步调整，正式开发未开始。
 
-只需要从下面三个入口看文档：
+只需要从下面四个入口看文档：
 
 - [PRD：网站做什么](docs/PRD.md)
 - [模块设计：每个功能怎么用、怎么实现](docs/modules/)
+- [功能实现方案：语言、架构与开发方法](docs/IMPLEMENTATION.md)
 - [进度规划：下一步与需要你决定的事](docs/PLAN.md)
 
 [当前原型](prototype/README.md) · [Sites 预览](https://mars-fieldnotes.hlb424559864.chatgpt.site) · [学习文档](learn/README.md) · [GitHub 公开仓库](https://github.com/adu-works/self-website)

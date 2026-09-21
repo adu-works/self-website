@@ -1,6 +1,6 @@
 # 05 · 站长 Agent 与开源复用
 
-> v2.0 · 待评审。推荐使用 Vercel AI SDK，业务权限与执行规则由本站控制。
+> v3.2 · 待评审。推荐 Python 模型接入，业务权限与执行规则由本站控制。
 
 v2.2 影响提示：这里是站长内容 Agent，不自动收款核实、退款、发微信或改变飞书授权。客户与订单管理使用确定性后台表单；付费 Skill 候选见模块 04，当前建议暂缓。
 
@@ -14,17 +14,16 @@ v2.2 影响提示：这里是站长内容 Agent，不自动收款核实、退款
 
 ## 开源项目怎么选
 
-| 候选 | 核对到的能力 | 本项目判断 |
-|---|---|---|
-| Vercel AI SDK | 模型适配、流式聊天、结构化工具参数、工具审批；Apache-2.0 | 最贴合网站问答与有限内容工具，建议直接依赖，自己写业务工具 |
-| OpenAI Agents SDK（JS） | 工具、人工介入、会话、追踪、多 Agent；MIT，支持多供应商扩展 | 能用，但当前不需要交接与复杂编排；暂不叠加第二套框架 |
-| Codex SDK | 包装 Codex CLI，通过子进程交换事件，支持线程及结构化输出；Apache-2.0 | 适合开发网站时用；拿来做文章后台会额外引入运行环境与权限范围，不作为网站运行时 |
+按本轮 Python 后端提案，首版建议使用选定模型厂商的 Python SDK，自己编写有限轮工具调用和提案流程。业务简单时无需搬整套 Agent 项目。厂商、模型与费用在接入前确认，不能默认产生公共模型账单。
 
-结论是“复用库和接口，借鉴审批体验”，不用复制整个仓库再删。以后确实需要 Agent 改代码时，另建隔离的开发环境并重新评审权限，不偷偷扩展内容 Agent。
+| 候选 | 本项目判断 |
+|---|---|
+| 厂商 Python SDK + 明确流程 | 当前推荐；读取、生成提案、等待确认三个步骤容易测试、审阅和学习 |
+| OpenAI Agents SDK（Python） | 官方提供工具、人工介入与追踪等能力；当实际流程需要这些能力时再评估，不为简单提案叠加框架 |
+| Vercel AI SDK | 旧 TypeScript 全栈方案的候选；Python 方案不再以它作为后端执行引擎 |
+| Codex | 可帮助开发本网站；内容后台不需要代码执行与 shell 权限，不直接把开发 Agent 搬进网站 |
 
-2026-09-20 阅读了以下一手资料：[AI SDK 工具与审批源码文档](https://github.com/vercel/ai/blob/main/content/docs/03-ai-sdk-core/15-tools-and-tool-calling.mdx)、[AI SDK 许可](https://github.com/vercel/ai/blob/main/LICENSE)、[Agents SDK README](https://github.com/openai/openai-agents-js)、[Codex TypeScript SDK](https://github.com/openai/codex/blob/main/sdk/typescript/README.md)。这是方案适配判断，未进行三套框架性能对比。
-
-注意：当前 AI SDK 主分支文档已使用 `toolApproval`，旧 `needsApproval` 被标为弃用。实际开发先选稳定发行版并锁版本，按该版文档实现；不能把主分支代码当作已经安装的 API。开源代码复用时保留相应许可与声明。
+参考 [Agents SDK Python 官方文档](https://openai.github.io/openai-agents-python/)（2026-09-21 核对）。以上是适配判断，未运行框架对比；确定依赖后锁版本并保留许可。模型适配层只封装本项目实际需要的生成、流式与工具结果，不提前造通用平台。
 
 ## 模型与程序各做什么
 

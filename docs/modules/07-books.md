@@ -12,8 +12,8 @@
 
 | 按钮 | 去向 | 说明 |
 |---|---|---|
-| 查看源文件 | GitHub `blob/{branch}/{chapterPath}` | 本章 Markdown，不是整站 JavaScript，也不是仓库首页 |
-| 编辑此章 | GitHub `edit/{branch}/{chapterPath}` | 登录后按 GitHub 提示 Fork/分支、编辑、提交 PR；网站不会直接写入 |
+| 查看源文件 | GitHub `blob/{publishedCommit}/{chapterPath}` | 实际发布版本的本章 Markdown，不是仓库首页 |
+| 编辑此章 | GitHub `edit/{branch}/{chapterPath}` | 指向维护分支，提示其可能领先于阅读版本；登录后按 GitHub 提示提交 PR，网站不会直接写入 |
 
 仓库维护者的 GitHub 页面可能允许直接提交；正式协作建议采用分支保护和 PR 审核。这是工程建议，本轮未修改仓库权限。
 
