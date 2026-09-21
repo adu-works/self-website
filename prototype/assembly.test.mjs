@@ -1,7 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {assemblyProgress,assemblyPose,assemblyStage} from './dist/assembly.mjs';
-test('scroll progress clamps outside the scene and survives a zero scroll span',()=>{assert.equal(assemblyProgress(100,2000,800),0);assert.equal(assemblyProgress(-600,2000,800),.5);assert.equal(assemblyProgress(-3000,2000,800),1);assert.equal(assemblyProgress(0,800,800),0)});
-test('all modules assemble exactly and reverse scrolling reproduces the same pose',()=>{for(let i=0;i<3;i++){assert.ok(Object.values(assemblyPose(1,i)).every(value=>value===0));const before=assemblyPose(.3,i);assemblyPose(.8,i);assert.deepEqual(assemblyPose(.3,i),before);assert.ok(assemblyPose(0,i).depth>0)}});
-
-test('chapters settle one panel before the next starts, and finish with an overview',()=>{assert.equal(assemblyPose(.26,0).depth,0);assert.ok(assemblyPose(.26,1).depth>0);assert.equal(assemblyPose(.54,1).depth,0);assert.ok(assemblyPose(.54,2).depth>0);assert.deepEqual([.26,.54,.82,1].map(assemblyStage),[0,1,2,3]);});
+test('progress clamps outside the scene and survives a zero span',()=>{assert.equal(assemblyProgress(100,2000,800),0);assert.equal(assemblyProgress(-600,2000,800),.5);assert.equal(assemblyProgress(-3000,2000,800),1);assert.equal(assemblyProgress(0,800,800),0)});
+test('the same product explodes and reassembles front-facing',()=>{assert.equal(assemblyPose(0).spread,0);assert.equal(assemblyPose(.23).spread,1);assert.deepEqual(assemblyPose(1),{spread:0,rx:0,ry:0,rz:0,scale:1.1});assert.deepEqual([0,.23,.48,.73,1].map(assemblyStage),[0,1,2,3,4]);});
+test('reversing scroll restores the pose without jumps between keyframes',()=>{const before=assemblyPose(.3);assemblyPose(.8);assert.deepEqual(assemblyPose(.3),before);for(const stop of [.23,.48,.73]){const a=assemblyPose(stop-.00001),b=assemblyPose(stop+.00001);for(const key of Object.keys(a))assert.ok(Math.abs(a[key]-b[key])<.001);}});

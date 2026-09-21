@@ -1,25 +1,44 @@
-/** Scroll-driven product explanation. Pure progress math stays separate from DOM effects.
- * Sections remain real readable HTML; reduced motion and narrow screens use a static layout.
+/** A project-specific exploded view, mounted only inside the personal-site case study.
+ * The scroll math is pure; WebGL is lazy-loaded and released when leaving this page.
+ * The HTML narrative remains available when motion or WebGL is unavailable.
  */
-export function assemblyProgress(top,height,viewport){return Math.max(0,Math.min(1,-top/Math.max(1,height-viewport)))}
-export function assemblyPose(progress,index){const arrival=Math.max(0,Math.min(1,(progress-index*.28)/.23));const eased=1-(1-arrival)**3;return {x:(1-eased)*[70,-75,50][index],y:(1-eased)*[-55,10,45][index],rotation:(1-eased)*[-12,10,-8][index],depth:(1-eased)*[100,60,80][index]}}
-export function assemblyStage(progress){return progress<.28?0:progress<.56?1:progress<.86?2:3}
-export function assembly(){return `<section class="assembly" aria-label="个人空间的功能组装"><div class="assembly-sticky"><div class="assembly-copy"><span class="eyebrow">个人空间 / 交互设计原型</span><h2>把分散的表达，<br>组装成<span>自己的空间。</span></h2><p class="assembly-intro">一篇文字建立认识，一部作品提供依据，<br>一份清楚的介绍，让交流有了下一步。</p><ol class="assembly-steps"><li><button data-assembly-stop="0"><small>01 / 文字</small><b>找到一个关心的问题</b><span>从文章与专题开始，建立认识。</span></button></li><li><button data-assembly-stop="1"><small>02 / 作品</small><b>看见想法怎样落地</b><span>目标、过程与取舍，给表达以依据。</span></button></li><li><button data-assembly-stop="2"><small>03 / 小店</small><b>决定是否值得进一步了解</b><span>看目录与试读，再主动联系。</span></button></li></ol><div class="assembly-status"><span data-assembly-status>01 / 04 · 从文字开始</span><button data-assembly-stop="3">查看完整组装</button></div><p class="assembly-hint">向下滚动，看看它们如何组成一个网站。</p><a class="text-link" href="#/project/website">阅读完整项目说明 ↗</a><a class="assembly-skip" href="#/projects" data-section="project-directory">跳过动效，查看作品目录 ↓</a></div><div class="assembly-model"><div class="assembly-shell"><div class="assembly-browser"><i></i><i></i><i></i><span>LINGBO / PERSONAL SPACE</span></div><div class="assembly-header"><strong>黄凌波</strong><span>文字　作品　小店</span></div><div class="assembly-module module-writing"><small>文字 / IDEAS</small><h3>先做小，<br>再做长。</h3><p>从一个具体的问题开始。</p><div class="assembly-lines"><i></i><i></i><i></i></div></div><div class="assembly-module module-project"><small>作品 / PRACTICE</small><div class="assembly-diagram"><i></i><i></i><i></i></div><h3>让想法，有迹可循。</h3><p>目标、过程与选择。</p></div><div class="assembly-module module-shop"><small>小店 / NEXT STEP</small><h3>先了解，再决定。</h3><p>目录 · 试读 · 交付说明</p><span>查看内容与联系入口 ↗</span></div><div class="assembly-caption">DESIGN PROTOTYPE · 示例界面，非真实业务成果</div></div></div><div class="assembly-meter" aria-hidden="true"><i></i></div></div></section>`}
-/** Owns only this section's listeners; native scroll remains interruptible and reversible. */
+const clamp=x=>Math.max(0,Math.min(1,x));
+const smooth=x=>{const t=clamp(x);return t*t*(3-2*t)};
+const mix=(a,b,t)=>a+(b-a)*t;
+export function assemblyProgress(top,height,viewport){return clamp(-top/Math.max(1,height-viewport))}
+// Each stop is a camera/composition state of the SAME product, not another website section.
+const frames=[
+ {at:0,spread:0,rx:-.12,ry:-.48,rz:-.06,scale:1},
+ {at:.23,spread:1,rx:-.55,ry:.52,rz:-.18,scale:.92},
+ {at:.48,spread:1,rx:.20,ry:-.30,rz:.10,scale:.98},
+ {at:.73,spread:.76,rx:-.08,ry:.22,rz:-.03,scale:1.05},
+ {at:1,spread:0,rx:0,ry:0,rz:0,scale:1.1}
+];
+export function assemblyPose(progress){const p=clamp(progress);let i=0;while(i<frames.length-2&&p>frames[i+1].at)i++;const a=frames[i],b=frames[i+1],t=smooth((p-a.at)/(b.at-a.at));return Object.fromEntries(['spread','rx','ry','rz','scale'].map(k=>[k,mix(a[k],b[k],t)]))}
+export function assemblyStage(p){return p<.15?0:p<.36?1:p<.60?2:p<.88?3:4}
+const chapters=[
+ ['一个知识空间。','先看完整的阅读界面。专题、正文和来源各在其位。'],
+ ['把界面拆开看。','目录退到侧后方，正文向前展开。读者能看清自己在哪里、接下来读什么。'],
+ ['专注于阅读。','文章层转向读者。目录保持在旁边，长文阅读有清楚的路径。'],
+ ['回答，有据可查。','问答与来源卡靠近正文；引用连接到具体段落。这是公开问答的设计演示。'],
+ ['合拢，继续阅读。','界面重新合拢。找到问题、读懂内容、核对来源，组成这件作品的阅读体验。']
+];
+export function assembly(){return `<section class="assembly" aria-label="个人空间作品的三维拆解"><div class="assembly-sticky"><div class="assembly-top"><span>PERSONAL SPACE / INTERACTIVE CASE STUDY</span><a href="#/project/website" data-section="project-overview">跳过演示，阅读项目说明 ↓</a></div><div class="assembly-copy"><span class="assembly-kicker" data-case-count>01 / 05</span>${chapters.map((c,i)=>`<div class="case-chapter" ${i?'hidden':''} data-case-chapter="${i}"><h2>${c[0]}</h2><p>${c[1]}</p></div>`).join('')}<small>示例作品 · 界面与 AI 均为原型</small></div><div class="assembly-model" aria-hidden="true"><div class="case-static"><span>个人空间 / 阅读体验</span><h3>一个人的项目，<br>先做小，再做长。</h3><p>专题目录 · 分章正文 · 可定位来源</p><div>公开问答　→　文章来源　→　具体段落</div></div></div><div class="assembly-bottom"><span data-case-status>向下滚动，旋转并拆开这件作品</span><div class="case-stops" aria-label="作品演示镜头">${['全貌','拆解','阅读','引用','归位'].map((x,i)=>`<button data-assembly-stop="${i}" ${i===0?'aria-current="step"':''}>${String(i+1).padStart(2,'0')} ${x}</button>`).join('')}</div></div><div class="assembly-meter" aria-hidden="true"><i></i></div></div></section>`}
 export function mountAssembly(root){
  const region=root.querySelector('.assembly');if(!region)return()=>{};
- const media=matchMedia('(max-width: 900px), (max-height: 680px), (prefers-reduced-motion: reduce)'),control=new AbortController();
- const sticky=region.querySelector('.assembly-sticky'),panels=[...region.querySelectorAll('.assembly-module')],steps=[...region.querySelectorAll('.assembly-steps li')];
- const stops=[.26,.54,.82,1],labels=['从文字开始','让实践提供依据','让交流有下一步','一个完整的个人空间'];let frame=0;
- function draw(){
-  frame=0;const p=media.matches?1:assemblyProgress(region.getBoundingClientRect().top,region.offsetHeight,sticky.offsetHeight),stage=assemblyStage(p);
-  panels.forEach((el,i)=>{const pose=assemblyPose(p,i);el.style.transform=media.matches?'none':`translate3d(${pose.x}px,${pose.y}px,${pose.depth}px) rotateZ(${pose.rotation}deg)`;el.classList.toggle('is-current',!media.matches&&stage===i);});
-  region.querySelector('.assembly-shell').style.transform=media.matches?'none':`rotateX(${(1-p)*12}deg) rotateY(${(1-p)*-16}deg) rotateZ(${(1-p)*4}deg)`;
-  steps.forEach((el,i)=>{el.classList.toggle('is-lit',media.matches||stage===3||stage===i);const b=el.querySelector('button');if(stage===i)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');});
-  region.querySelector('[data-assembly-status]').textContent=`0${stage+1} / 04 · ${labels[stage]}`;
-  region.querySelector('.assembly-meter i').style.transform=`scaleX(${p})`;
+ const media=matchMedia('(max-width: 760px), (max-height: 600px), (prefers-reduced-motion: reduce)'),control=new AbortController(),sticky=region.querySelector('.assembly-sticky');
+ let frame=0,disposed=false,scene=null,loading=false,failed=false;
+ const stops=[0,.23,.48,.73,1],chaptersDOM=[...region.querySelectorAll('[data-case-chapter]')];
+ // Avoid importing Three.js into the works list, home or reduced-motion presentation.
+ async function loadScene(){if(loading||scene||failed||media.matches)return;loading=true;try{const {createProjectScene}=await import('./project-scene.mjs');if(disposed||media.matches)return;scene=await createProjectScene(region.querySelector('.assembly-model'),()=>{failed=true;schedule();});if(disposed){scene.dispose();scene=null;return;}region.classList.add('has-webgl');schedule();}catch{failed=true;region.classList.add('case-unavailable');schedule();}finally{loading=false;}}
+ function draw(){frame=0;if(disposed)return;const quiet=media.matches||failed;region.classList.toggle('case-quiet',quiet);const p=quiet?1:assemblyProgress(region.getBoundingClientRect().top,region.offsetHeight,sticky.offsetHeight),stage=assemblyStage(p);
+  chaptersDOM.forEach((el,i)=>el.hidden=!quiet&&i!==stage);region.querySelector('[data-case-count]').textContent=`0${stage+1} / 05`;
+  region.querySelectorAll('[data-assembly-stop]').forEach((b,i)=>{if(i===stage)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');});
+  region.querySelector('[data-case-status]').textContent=stage===4?'继续向下，阅读项目说明':'滚动探索 · 也可点击选择镜头';region.querySelector('.assembly-meter i').style.transform=`scaleX(${p})`;
+  if(quiet&&scene){scene.dispose();scene=null;region.classList.remove('has-webgl');}else if(!quiet){loadScene();scene?.render(assemblyPose(p),stage);}
  }
  function schedule(){if(!frame)frame=requestAnimationFrame(draw)}
- region.addEventListener('click',e=>{const b=e.target.closest('[data-assembly-stop]');if(!b)return;const i=Number(b.dataset.assemblyStop);if(media.matches){(panels[i]||region.querySelector('.assembly-model')).scrollIntoView({block:'center',behavior:'instant'});return;}const top=scrollY+region.getBoundingClientRect().top+(region.offsetHeight-sticky.offsetHeight)*stops[i];window.scrollTo({top,behavior:'smooth'});},{signal:control.signal});
- window.addEventListener('scroll',schedule,{passive:true,signal:control.signal});window.addEventListener('resize',schedule,{signal:control.signal});media.addEventListener('change',schedule,{signal:control.signal});draw();return()=>{control.abort();cancelAnimationFrame(frame)};
+ region.addEventListener('click',e=>{const b=e.target.closest('[data-assembly-stop]');if(!b)return;const i=Number(b.dataset.assemblyStop);window.scrollTo({top:scrollY+region.getBoundingClientRect().top+(region.offsetHeight-sticky.offsetHeight)*stops[i],behavior:media.matches?'instant':'smooth'});},{signal:control.signal});
+ window.addEventListener('scroll',schedule,{passive:true,signal:control.signal});window.addEventListener('resize',schedule,{signal:control.signal});media.addEventListener('change',schedule,{signal:control.signal});draw();
+ return()=>{disposed=true;control.abort();cancelAnimationFrame(frame);scene?.dispose();};
 }

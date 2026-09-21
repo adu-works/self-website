@@ -1,4 +1,4 @@
-# 当前交互原型 · v2.4.1
+# 当前交互原型 · v2.5.0
 
 [Sites 私有预览](https://mars-fieldnotes.hlb424559864.chatgpt.site/#/home) · [PRD](../docs/PRD.md) · [验证记录](VALIDATION.md)
 
@@ -21,17 +21,17 @@ node --test prototype/*.test.mjs
 
 - `dist/personal.js` / `personal.css`：页面与主视觉；`navigation.mjs`：来源返回。
 - `dist/home-content.mjs` / `home-content.css`：公开最新动态示例、作品卡和滑动书架。
-- `dist/gallery.mjs` / `gallery.css`：作品图片画廊与首页视频画廊，负责滚动、全屏和播放清理。
+- `dist/gallery.mjs` / `gallery.css`：首页视频画廊，负责滚动、全屏和播放清理。
 - `dist/media/`：原创程序动态样片与封面，非个人实拍，来源见 [素材说明](ASSET-SOURCES.md)。
-- `dist/assembly.mjs` / `assembly.css`：作品页界面组装叙事；手机与减少动效静态呈现。
+- `dist/assembly.mjs` / `assembly.css`：单件作品详情滚动叙事；`project-scene.mjs` 按需创建真实三维界面模型；手机与减少动效静态呈现。
 - `books/independent-site/`：公开示例书稿；`build-books.mjs` 生成供 `dist/books.mjs` 使用的数据。
 
 原型只有这一份，旧部署与旧设计查 Git 历史。当前修改仍待用户审美和阶段评审。Sites 保持所有者私有，部署记录在本次交付结果中。
 
 ## 本轮交互修订
 
-v2.4.1：作品按四阶段组装，可点选阶段；首页视频有片段编号和首尾状态，展开继承播放进度；书架随横移轻转，到边界禁用按钮。短窗口、手机和减少动效使用稳定布局。当前发布结果见本次交付，访问范围不变。
+v2.5.0：作品列表只放作品，个人空间详情提供全貌、拆解、阅读、引用、归位五个镜头。复用 Three.js，原创 UI 纹理不代表真实业务截图。手机、短窗口、减少动效与 WebGL 失败展示完整静态说明。仍待用户评审。
 
-2026-09-21：本轮已发布至 Sites 版本 15，状态 succeeded，保持所有者私有。
-- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_fe6e64906afc819198a4fb821d180efb`
-- Deployment：`appgdep_6ab0e00191c4819183e81e097d0f7e98`
+2026-09-21：Sites 版本 16 发布成功，保持所有者私有。
+- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_9e1f31ae62888191ad59b63b040083ea`
+- Deployment：`appgdep_6ab0e7901c8081918de79dc7f14008d7`
