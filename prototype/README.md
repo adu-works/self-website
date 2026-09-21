@@ -21,3 +21,8 @@
 - Deployment：`appgdep_6aafee56df308191ad8fae1ed91390aa`
 
 书籍原型：`dist/books.mjs` 渲染、`dist/books.css` 排版；`books/independent-site/*.md` 是 GitHub 查看/编辑入口对应的公开示例源文件。改稿后运行 `node prototype/build-books.mjs`，再预览和发布。当前无自动 PR 或自动发布。
+
+2026-09-21：书籍原型已发布至 Sites 版本 11，所有者私有访问未改变。
+- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_2b3fc66c298881919c1cc3305b9797d5`
+- Deployment：`appgdep_6ab096ff960c81919716911e8d1efcb3`
+正式书籍建议独立仓库；本目录只是公开演示书稿，未创建真实出版物仓库或替用户决定许可。
