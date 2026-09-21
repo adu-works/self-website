@@ -1,4 +1,4 @@
-# 当前交互原型 · v2.1.0
+# 当前交互原型 · v2.2.0
 
 [Sites 私有预览](https://mars-fieldnotes.hlb424559864.chatgpt.site) · [PRD](../docs/PRD.md) · [验证记录](VALIDATION.md)
 
@@ -26,3 +26,9 @@
 - Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_2b3fc66c298881919c1cc3305b9797d5`
 - Deployment：`appgdep_6ab096ff960c81919716911e8d1efcb3`
 正式书籍建议独立仓库；本目录只是公开演示书稿，未创建真实出版物仓库或替用户决定许可。
+
+v2.2.0：新增 gallery.mjs/gallery.css，首页与作品页共享横向画廊和全屏图片浏览。两张 SVG 为原创排版示例，其他复用既有概念素材；不代表个人真实照片。当前新版本发布状态见最终交付。
+
+2026-09-21：v2.2.0 已发布至 Sites 版本 12，仍为所有者私有。
+- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_e0c4d1c0fba08191947bee0aef0c0efc`
+- Deployment：`appgdep_6ab0c30090248191a4ffc672fc9e6ce0`
