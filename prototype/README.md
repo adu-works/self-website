@@ -1,4 +1,4 @@
-# 当前交互原型 · v2.5.0
+# 当前交互原型 · v2.5.1
 
 [Sites 私有预览](https://mars-fieldnotes.hlb424559864.chatgpt.site/#/home) · [PRD](../docs/PRD.md) · [验证记录](VALIDATION.md)
 
@@ -30,8 +30,10 @@ node --test prototype/*.test.mjs
 
 ## 本轮交互修订
 
-v2.5.0：作品列表只放作品，个人空间详情提供全貌、拆解、阅读、引用、归位五个镜头。复用 Three.js，原创 UI 纹理不代表真实业务截图。手机、短窗口、减少动效与 WebGL 失败展示完整静态说明。仍待用户评审。
+v2.5.1：作品列表只放作品，个人空间详情提供全貌、拆解、阅读、引用、归位五个镜头。复用 Three.js，原创 UI 纹理不代表真实业务截图。手机、短窗口、减少动效与 WebGL 失败展示完整静态说明。仍待用户评审。
 
-2026-09-21：Sites 版本 16 发布成功，保持所有者私有。
-- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_9e1f31ae62888191ad59b63b040083ea`
-- Deployment：`appgdep_6ab0e7901c8081918de79dc7f14008d7`
+2026-09-21：Sites 版本 17 发布成功，保持所有者私有。
+- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_2e67a3e2b6e88191b402d8f5abf1ba54`
+- Deployment：`appgdep_6ab0eeccff4c8191b31d3917678e715b`
+
+窄桌面使用上文下图并保留三维。仅小屏 ≤480px、极短窗口 ≤420px、减少动效或 WebGL 故障静态降级，并说明原因。
