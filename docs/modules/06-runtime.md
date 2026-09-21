@@ -1,6 +1,6 @@
 # 06 · 火星体验、工程底座与上线
 
-> v3.2 · 待评审。主站先服务阅读与购买，3D 为可选作品。
+> v3.3 · 待评审。主站先服务阅读与购买，3D 为可选作品。
 
 ## 主站与实验分开
 
@@ -14,22 +14,20 @@
 
 当前没有生产后端。原型用 HTML、CSS、JavaScript；本地 `python3 -m http.server` 只负责提供静态文件，不是业务后端。
 
-2026-09-21 用户提出 Python 工程学习目标后，建议改为以下组合，待用户评审。这替代旧的 TypeScript 全栈建议，不代表已完成迁移或批准开发。
+2026-09-21 用户授权按项目适合程度选型，本轮确定 TypeScript 全栈方向。具体工程方案仍待 G3 评审。
 
 | 部分 | 推荐选择 | 职责 |
 |---|---|---|
-| 前端 | Next.js / React + TypeScript + CSS | 页面、交互、服务器渲染与 API 客户端，不重复写业务权限 |
-| 后端 | Python + FastAPI + Pydantic | 校验输入、登录权限、内容、订单与 Agent 服务 |
-| 数据层 | PostgreSQL + SQLAlchemy 2 + Alembic | 数据读写、事务与可追踪的表结构迁移 |
-| 托管服务 | Supabase Auth / PostgreSQL / Storage | 托管登录、数据库和附件；Python 仍执行本站权限检查 |
-| 模型 | 选定厂商的 Python SDK + 本站小型工具流程 | 先做有限只读调用和提案，不引入多 Agent 编排 |
-| 检查 | pytest、Ruff、mypy；前端 Vitest、Playwright | 后端逻辑/集成、格式和类型，前端状态及端到端操作 |
+| 前端 | Next.js / React + TypeScript + CSS | 页面、交互与服务器渲染 |
+| 后端 | Next.js Route Handlers + Node.js + Zod | 校验输入、权限、内容、订单与 Agent 服务 |
+| 数据层 | PostgreSQL + Drizzle ORM / SQL 迁移 | 数据读写、事务与表结构变更 |
+| 托管服务 | Supabase Auth / PostgreSQL / Storage | 托管身份、数据库和附件，本站服务端仍检查权限 |
+| 模型 | Vercel AI SDK + 有限工具流程 | 模型适配、流式响应和提案，不引入多 Agent 编排 |
+| 检查 | TypeScript、ESLint、Vitest、Playwright | 类型、代码检查、逻辑/数据库集成及页面操作 |
 
-两种语言会增加部署和接口维护成本，但后端职责完整，适合用户系统学习 Python。FastAPI 提供基于 Python 类型与 Pydantic 的输入模型、OpenAPI 接口描述；我们用契约生成前端类型，避免手写两套字段。[FastAPI 官方说明](https://fastapi.tiangolo.com/features/)
+一个 Node.js 应用同时提供页面与 API，无需额外部署 Python 服务；前后端共享安全的契约，不共享秘密和数据库访问代码。Sites 继续承载静态原型，正式应用需要服务端环境；不限定必须部署到 Vercel。具体地区、预算、网络和流式限制先验证再锁定托管商与依赖版本。
 
-部署建议同域反向代理：网页请求交给 Next.js，`/api/` 交给 FastAPI。生产须支持 Node 与 Python 进程；Sites 继续用于静态原型。上线地区、预算和网络能力先验证再选托管商、锁版本。完整请求流程、认证、数据权限与部署边界见 [功能实现方案](../IMPLEMENTATION.md)，不在此重复。
-
-单个 Python 应用按功能模块组织，不建微服务、独立向量库或消息队列。迁移脚本维护数据库结构；后台和 Agent 复用同一业务服务，不能各写一套发布逻辑。
+单体按功能模块组织，不建微服务、独立向量库或消息队列。后台和 Agent 复用同一业务服务。请求流程、认证和部署边界见 [功能实现方案](../IMPLEMENTATION.md)。
 
 ## 加载与降级
 
