@@ -1,40 +1,37 @@
-# 当前交互原型 · v2.2.0
+# 当前交互原型 · v2.4.0
 
-[Sites 私有预览](https://mars-fieldnotes.hlb424559864.chatgpt.site) · [PRD](../docs/PRD.md) · [验证记录](VALIDATION.md)
+[Sites 私有预览](https://mars-fieldnotes.hlb424559864.chatgpt.site/#/home) · [PRD](../docs/PRD.md) · [验证记录](VALIDATION.md)
 
-默认入口是个人主页：文字、作品、小店、关于与社媒。文章与商品使用不同详情版式；商品可打开微信咨询弹窗。公共 Chat 提供模拟回答与章节引用；站长工作台演示订单、客户和草稿提案。所有文章、价格、订单、AI 均明确标注示例，不开放真实购买或收集 Key。
+六个栏目：首页、文字、书籍、作品、小店、关于。首页顺序为个人主张与最新动态、最近文字、作品、书籍、小店、生活视频。自述入口固定；视频和书稿占位明确标注，未收到的真实经历不编造。
 
-火星退出主站展示与首版范围，历史原型保留在 `dist/explore.html`；其旧配置与旧主站属于历史交互演示，固定链接可回新版首页。后续如保留正式实验，应删除旧配置与旧站路由。没有新建版本目录。
+文章、商品、书籍有各自详情版式。公共 Chat、管理工作台、订单与 Agent 为演示，没有真实登录、模型、购买或飞书写入，也不收集访客 Key。火星不再出现在主站，历史文件 `dist/explore.html` 保留。
 
-本地启动：在根目录运行 `python3 -m http.server 4788 --bind 127.0.0.1 --directory prototype/dist`。检查：`node --test prototype/*.test.mjs`。
+## 本地运行与检查
 
-主站文件：`dist/index.html`、`personal.js`、`personal.css`；来源返回复用 `navigation.mjs`。场景资源、许可证与相关测试保留。新封面由 CSS 和文字构成，未新增外部图片。
+在根目录执行：
 
-部署状态见下方更新记录；访问范围仍为 Sites 所有者私有。正式后台、飞书权限和模型尚未实现。
+```sh
+python3 -m http.server 4788 --bind 127.0.0.1 --directory prototype/dist
+node --test prototype/*.test.mjs
+```
 
-2026-09-20：Sites 版本 9 部署成功，所有者私有访问未改变。
-- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_62289cb56150819193836051d4e6d8f5`
-- Deployment：`appgdep_6aafdedf06e081919fbef65b275d5fcb`
+打开 http://127.0.0.1:4788/ 。修改示例书稿后运行 `node prototype/build-books.mjs`。
 
-2026-09-20：v2.1.0 已更新至 Sites 版本 10，精选阅读、专题目录、篇末作者与相关商品已加入；访问范围不变。
-- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_27e199a33b508191a6af20d91e16550e`
-- Deployment：`appgdep_6aafee56df308191ad8fae1ed91390aa`
+## 文件在哪里
 
-书籍原型：`dist/books.mjs` 渲染、`dist/books.css` 排版；`books/independent-site/*.md` 是 GitHub 查看/编辑入口对应的公开示例源文件。改稿后运行 `node prototype/build-books.mjs`，再预览和发布。当前无自动 PR 或自动发布。
+- `dist/personal.js` / `personal.css`：页面与主视觉；`navigation.mjs`：来源返回。
+- `dist/home-content.mjs` / `home-content.css`：公开最新动态示例、作品卡和滑动书架。
+- `dist/gallery.mjs` / `gallery.css`：作品图片画廊与首页视频画廊，负责滚动、全屏和播放清理。
+- `dist/media/`：原创程序动态样片与封面，非个人实拍，来源见 [素材说明](ASSET-SOURCES.md)。
+- `dist/assembly.mjs` / `assembly.css`：作品页界面组装叙事；手机与减少动效静态呈现。
+- `books/independent-site/`：公开示例书稿；`build-books.mjs` 生成供 `dist/books.mjs` 使用的数据。
 
-2026-09-21：书籍原型已发布至 Sites 版本 11，所有者私有访问未改变。
-- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_2b3fc66c298881919c1cc3305b9797d5`
-- Deployment：`appgdep_6ab096ff960c81919716911e8d1efcb3`
-正式书籍建议独立仓库；本目录只是公开演示书稿，未创建真实出版物仓库或替用户决定许可。
+原型只有这一份，旧部署与旧设计查 Git 历史。当前修改仍待用户审美和阶段评审。Sites 保持所有者私有，部署记录在本次交付结果中。
 
-v2.2.0：新增 gallery.mjs/gallery.css，首页与作品页共享横向画廊和全屏图片浏览。两张 SVG 为原创排版示例，其他复用既有概念素材；不代表个人真实照片。当前新版本发布状态见最终交付。
+## 当前部署
 
-2026-09-21：v2.2.0 已发布至 Sites 版本 12，仍为所有者私有。
-- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_e0c4d1c0fba08191947bee0aef0c0efc`
-- Deployment：`appgdep_6ab0c30090248191a4ffc672fc9e6ce0`
+2026-09-21：v2.4.0 已发布为 Sites 版本 14，状态 succeeded，保持所有者私有。
 
-v2.3.0：作品页新增 assembly.mjs/assembly.css，以滚动组装文字、作品、小店界面解释价值；手机/减少动效直接展示。火星从作品列表和主画廊移出，仅保留历史深链。画廊改用自制排版与界面示意，不冒充个人照片。
-
-2026-09-21：v2.3.0 已发布至 Sites 版本 13，保持所有者私有。
-- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_61c3a2ff34e081919dbc03d88ad21f45`
-- Deployment：`appgdep_6ab0c49eec5c819185a2adff695c19fc`
+- Version：`appgprj_6aaaa09a0d448191800980bb93825787~appgver_2889ee2e48d88191a456f6c8379d9180`
+- Deployment：`appgdep_6ab0cb6bbf68819183a83ff9cf6f0381`
+- 发布源码提交：`6fec94e5d8d8fb65d550af30a5eb064239c3351a`（Sites 源仓库）

@@ -8,3 +8,7 @@ Current file: `dist/astronaut.glb` (original download name astronaut-human.glb).
 
 
 `dist/mars-panorama.png` and `dist/earth-orbit.png` are generated prototype illustrations from the earlier Sites iteration. Retained for the approved visual baseline; not evidence of real project results. Three.js and loader utilities retain their MIT notice in THREE-LICENSE.txt.
+
+## Homepage motion studies · 2026-09-21
+
+`dist/media/observe.mp4`, `make.mp4`, `live.mp4` and matching JPG posters were generated locally with FFmpeg: 640×400, 24 fps, 5 seconds, H.264/yuv420p, fast-start, no audio. RGB channels use sinusoidal spatial/time functions (`geq`), with three color palettes. No third-party footage or personal photos were used. They are explicitly labelled procedural demonstration clips, not Huang Lingbo's real life recordings. HTML overlays provide OBSERVE / MAKE / LIVE labels. Replace with author-approved footage and captions before using this section as a real personal portfolio.
